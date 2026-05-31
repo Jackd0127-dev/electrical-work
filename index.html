@@ -4,44 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#191817">
-  <title>Electrical Services Northern Ireland | Rewires, EICRs, Consumer Units</title>
-  <meta name="description" content="Customer-friendly electrical safety information and electrical service guidance for Northern Ireland, including rewires, EICRs, consumer units, EV chargers, alarms, lighting and sockets.">
+  <title>NI Electrical Revision Reference</title>
+  <meta name="description" content="UK and Northern Ireland electrical revision reference for competent-person learning: BS 7671 concepts, safe isolation, inspection and testing, earthing, bonding, circuits, EICRs, EV charging, alarms and NI compliance notes.">
   <link rel="canonical" href="https://electrical.scriptai.space/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://electrical.scriptai.space/">
-  <meta property="og:title" content="Electrical Safety &amp; Services in Northern Ireland">
-  <meta property="og:description" content="Safe, customer-facing electrical service information for homes and rented properties in Northern Ireland.">
-  <meta property="og:site_name" content="Electrical Safety &amp; Services in Northern Ireland">
+  <meta property="og:title" content="NI Electrical Revision Reference">
+  <meta property="og:description" content="Compact UK and Northern Ireland electrical revision notes for competent-person learning and recap.">
+  <meta property="og:site_name" content="NI Electrical Revision Reference">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Electrical Safety &amp; Services in Northern Ireland">
-  <meta name="twitter:description" content="Customer-friendly electrical safety guidance for Northern Ireland without DIY wiring instructions.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <meta name="twitter:title" content="NI Electrical Revision Reference">
+  <meta name="twitter:description" content="BS 7671 concepts, safe isolation, testing, earthing, bonding, circuits, EV charging, alarms and Northern Ireland compliance notes.">
   <style>
     :root {
+      --bg: #f5f1e8;
+      --panel: #fffaf2;
+      --panel-strong: #ffffff;
       --ink: #191817;
-      --ink-soft: #37322e;
-      --paper: #f6f2ea;
-      --cream: #ece5da;
-      --surface: #fffaf2;
-      --surface-strong: #ffffff;
-      --rule: #cfc5b7;
-      --muted: #71695f;
-      --amber: #c97812;
-      --amber-soft: #f1c56a;
-      --green: #007f45;
-      --green-soft: #e5f2eb;
-      --red: #b2362a;
-      --red-soft: #f8e7e3;
-      --blue: #24537d;
-      --blue-soft: #e6eef5;
-      --focus: #0f6fbf;
-      --shadow: 0 18px 50px rgba(25, 24, 23, 0.1);
+      --ink-soft: #3a342f;
+      --muted: #665d53;
+      --border: #cfc4b4;
+      --border-strong: #a99b89;
+      --accent: #8f4f00;
+      --accent-soft: #f7dfb8;
+      --green: #005f36;
+      --green-soft: #dceee5;
+      --red: #9f2d23;
+      --red-soft: #f6dfda;
+      --blue: #214f79;
+      --blue-soft: #e2edf6;
+      --focus: #0969b3;
+      --shadow: 0 16px 42px rgba(25, 24, 23, 0.12);
       --radius: 8px;
-      --max: 1180px;
-      --sidebar: 272px;
+      --header-height: 76px;
+      --sidebar-width: 280px;
+      --content-max: 1120px;
     }
 
     * {
@@ -50,15 +48,21 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 18px);
     }
 
     body {
       margin: 0;
-      background: var(--paper);
+      overflow-x: hidden;
+      background: var(--bg);
       color: var(--ink);
-      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
       -webkit-text-size-adjust: 100%;
+    }
+
+    body.nav-open {
+      overflow: hidden;
     }
 
     a {
@@ -68,415 +72,341 @@
     a:focus-visible,
     button:focus-visible,
     input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
+    summary:focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 3px;
     }
 
     .skip-link {
       position: absolute;
-      left: 12px;
       top: -60px;
-      z-index: 2000;
-      background: var(--surface-strong);
-      color: var(--ink);
-      border: 2px solid var(--ink);
+      left: 12px;
+      z-index: 200;
       padding: 10px 14px;
-      border-radius: 4px;
-      transition: top 0.15s ease;
+      border-radius: 6px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
     }
 
     .skip-link:focus {
       top: 12px;
     }
 
-    .site-header {
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .app-header {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: var(--ink);
-      color: var(--paper);
-      border-bottom: 3px solid var(--amber);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+      z-index: 100;
+      min-height: var(--header-height);
+      border-bottom: 1px solid rgba(207, 196, 180, 0.85);
+      background: rgba(255, 250, 242, 0.96);
+      backdrop-filter: blur(14px);
     }
 
     .header-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: auto minmax(220px, 560px) auto;
       gap: 18px;
+      align-items: center;
+      max-width: 1440px;
+      min-height: var(--header-height);
+      margin: 0 auto;
+      padding: 10px 22px;
     }
 
     .brand {
       min-width: 0;
+      color: var(--ink);
       text-decoration: none;
     }
 
     .brand-title {
       display: block;
-      font-family: "DM Serif Display", Georgia, serif;
-      font-size: clamp(18px, 2vw, 25px);
-      line-height: 1.1;
-      letter-spacing: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 1.08rem;
+      font-weight: 800;
+      line-height: 1.15;
     }
 
-    .brand-sub {
+    .brand-subtitle {
       display: block;
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(246, 242, 234, 0.7);
       margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.25;
     }
 
-    .nav-toggle {
-      display: none;
-      margin-left: auto;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      color: var(--paper);
-      background: transparent;
-      border-radius: 5px;
-      padding: 8px 11px;
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    .top-nav {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .top-nav a {
-      text-decoration: none;
-      color: rgba(246, 242, 234, 0.78);
-      border-radius: 4px;
-      padding: 7px 10px;
-      font-size: 13px;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .top-nav a:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-    }
-
-    .top-nav .quote-link {
-      background: var(--amber);
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .top-nav .quote-link:hover {
-      background: #a9650f;
-    }
-
-    .layout {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 24px 70px;
+    .header-tools {
       display: grid;
-      grid-template-columns: var(--sidebar) minmax(0, 1fr);
-      gap: 30px;
-      align-items: start;
-    }
-
-    .side-nav {
-      position: sticky;
-      top: 94px;
-      background: #11100f;
-      color: var(--paper);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .side-nav-title {
-      padding: 15px 16px 10px;
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: rgba(246, 242, 234, 0.48);
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .side-nav a {
-      display: block;
-      text-decoration: none;
-      color: rgba(246, 242, 234, 0.66);
-      padding: 9px 16px;
-      border-left: 3px solid transparent;
-      font-size: 13px;
-      transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .side-nav a:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.05);
-      border-left-color: var(--amber);
-    }
-
-    main {
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
       min-width: 0;
     }
 
-    .hero {
-      background: var(--surface-strong);
-      border: 1px solid var(--rule);
+    .search-wrap {
+      position: relative;
+      min-width: 0;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 78px 9px 14px;
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      background: var(--panel-strong);
+      color: var(--ink);
+      font: inherit;
     }
 
-    .hero-grid {
+    .search-wrap input::placeholder {
+      color: #777068;
+    }
+
+    .clear-search {
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      transform: translateY(-50%);
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink-soft);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .clear-search[hidden] {
+      display: none;
+    }
+
+    .match-count {
+      color: var(--muted);
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .review-badge {
+      justify-self: end;
+      max-width: 260px;
+      padding: 7px 10px;
+      border: 1px solid #d6a445;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #563000;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .menu-button {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel-strong);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      display: inline-grid;
+      gap: 4px;
+    }
+
+    .menu-icon span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    .app-shell {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-      min-height: 450px;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      gap: 24px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px 22px 48px;
     }
 
-    .hero-copy {
-      padding: clamp(28px, 5vw, 58px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .sidebar {
+      position: sticky;
+      top: calc(var(--header-height) + 16px);
+      height: calc(100vh - var(--header-height) - 32px);
+      overflow-y: auto;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #221f1c;
+      color: #f8efe2;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar-heading {
+      margin: 0 0 12px;
+      color: #d9cdbb;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-group {
+      margin: 0 0 12px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-group:last-child {
+      border-bottom: 0;
+    }
+
+    .nav-group-title {
+      margin: 0 0 6px;
+      color: #b9aa98;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-group a {
+      display: block;
+      margin: 2px 0;
+      padding: 7px 8px;
+      border-radius: 6px;
+      color: #f8efe2;
+      font-size: 0.88rem;
+      font-weight: 650;
+      line-height: 1.25;
+      text-decoration: none;
+    }
+
+    .nav-group a:hover,
+    .nav-group a.active {
+      background: #fff2dd;
+      color: #201b16;
+    }
+
+    .nav-group a[hidden],
+    .nav-group[hidden] {
+      display: none;
+    }
+
+    .sidebar-note {
+      margin: 14px 0 0;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 6px;
+      color: #eadfce;
+      font-size: 0.8rem;
+    }
+
+    .content {
+      min-width: 0;
+      max-width: var(--content-max);
+      width: 100%;
+    }
+
+    .topic-section {
+      margin: 0 0 18px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 10px 28px rgba(25, 24, 23, 0.06);
+      scroll-margin-top: calc(var(--header-height) + 18px);
+    }
+
+    .topic-section[hidden] {
+      display: none;
+    }
+
+    .start-section {
+      padding-top: 26px;
+    }
+
+    .section-header {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 18px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+      text-transform: uppercase;
     }
 
     h1,
     h2,
-    h3 {
-      margin: 0;
-      line-height: 1.15;
-      font-family: "DM Serif Display", Georgia, serif;
-      font-weight: 400;
-      letter-spacing: 0;
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      font-size: clamp(37px, 6vw, 66px);
-      max-width: 790px;
+      max-width: 760px;
+      margin-bottom: 8px;
+      font-size: clamp(2rem, 4vw, 2.65rem);
+      line-height: 1.08;
+      letter-spacing: 0;
     }
 
     h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      margin-bottom: 12px;
+      margin-bottom: 6px;
+      font-size: clamp(1.4rem, 2.4vw, 1.65rem);
+      line-height: 1.18;
+      letter-spacing: 0;
     }
 
     h3 {
-      font-size: clamp(21px, 3vw, 27px);
       margin-bottom: 8px;
-    }
-
-    p {
-      margin: 0 0 14px;
-    }
-
-    .hero-subtitle {
-      color: var(--ink-soft);
-      font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.55;
-      max-width: 760px;
-      margin: 22px 0;
-    }
-
-    .hero-actions,
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 11px 17px;
-      border-radius: 5px;
-      border: 1.5px solid var(--ink);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.2;
-      cursor: pointer;
-      transition: transform 0.12s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .button-primary {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .button-primary:hover {
-      background: var(--amber);
-      border-color: var(--amber);
-      color: #fff;
-    }
-
-    .button-secondary {
-      background: transparent;
-      color: var(--ink);
-    }
-
-    .button-secondary:hover {
-      background: var(--cream);
-    }
-
-    .hero-panel {
-      background:
-        linear-gradient(160deg, rgba(0, 127, 69, 0.12), transparent 42%),
-        linear-gradient(25deg, rgba(201, 120, 18, 0.14), transparent 50%),
-        var(--cream);
-      border-left: 1px solid var(--rule);
-      padding: 34px 26px;
-      display: flex;
-      align-items: stretch;
-    }
-
-    .process-card {
-      width: 100%;
-      background: rgba(255, 250, 242, 0.92);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 14px;
-    }
-
-    .process-title {
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .process-step {
-      display: grid;
-      grid-template-columns: 30px 1fr;
-      gap: 11px;
-      align-items: start;
-      font-size: 14px;
-      color: var(--ink-soft);
-    }
-
-    .process-step span:first-child {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--ink);
-      color: var(--paper);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 12px;
-    }
-
-    .section {
-      margin-top: 30px;
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: clamp(24px, 4vw, 40px);
-      scroll-margin-top: 94px;
-    }
-
-    .section.plain {
-      background: transparent;
-      border: 0;
-      padding: 0;
-      box-shadow: none;
-    }
-
-    .section-kicker {
-      margin: 0 0 8px;
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.25;
+      letter-spacing: 0;
     }
 
     .lead {
+      max-width: 880px;
       color: var(--ink-soft);
-      font-size: 17px;
-      max-width: 870px;
-      margin-bottom: 18px;
+      font-size: 1.02rem;
     }
 
-    .notice,
-    .review-note {
-      border-radius: 0 7px 7px 0;
-      padding: 16px 18px;
-      margin: 18px 0;
-      border: 1px solid;
-      border-left-width: 4px;
-    }
-
-    .notice strong,
-    .review-note strong {
-      color: var(--ink);
-    }
-
-    .notice.safety {
-      background: var(--red-soft);
-      border-color: rgba(178, 54, 42, 0.28);
-      border-left-color: var(--red);
-    }
-
-    .notice.info {
-      background: var(--blue-soft);
-      border-color: rgba(36, 83, 125, 0.25);
-      border-left-color: var(--blue);
-    }
-
-    .notice.ni {
-      background: var(--green-soft);
-      border-color: rgba(0, 127, 69, 0.24);
-      border-left-color: var(--green);
-    }
-
-    .review-note {
-      background: #fff7df;
-      border-color: rgba(201, 120, 18, 0.35);
-      border-left-color: var(--amber);
-    }
-
-    .notice-title,
-    .review-title {
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 5px;
+    .compact {
+      max-width: 850px;
     }
 
     .grid {
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
 
     .grid.two {
@@ -487,799 +417,1440 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .card {
-      background: var(--surface-strong);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 18px;
+    .grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .card h3 {
-      font-size: 23px;
-      margin-bottom: 8px;
+    .card,
+    .note,
+    .formula-card,
+    .source-card,
+    .glossary-card,
+    .concept-visual {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel-strong);
+    }
+
+    .card {
+      padding: 16px;
     }
 
     .card p:last-child,
-    .notice p:last-child,
-    .review-note p:last-child {
+    .note p:last-child,
+    .formula-card p:last-child,
+    .source-card p:last-child,
+    .glossary-card p:last-child {
       margin-bottom: 0;
     }
 
-    .tag-row {
+    .card ul,
+    .note ul {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    .card li,
+    .note li {
+      margin: 0 0 5px;
+    }
+
+    .note {
+      margin: 14px 0;
+      padding: 14px 16px;
+      background: var(--blue-soft);
+      border-color: #b8cee1;
+      color: #173a5d;
+    }
+
+    .note.warning {
+      background: var(--red-soft);
+      border-color: #e1b4ad;
+      color: #651a14;
+    }
+
+    .note.review {
+      background: var(--accent-soft);
+      border-color: #deb25d;
+      color: #533100;
+    }
+
+    .note.safe {
+      background: var(--green-soft);
+      border-color: #b6d9c5;
+      color: #143d2a;
+    }
+
+    .note-title {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 900;
+    }
+
+    .badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--panel-strong);
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1.2;
+    }
+
+    .badge.review {
+      border-color: #d6a445;
+      background: var(--accent-soft);
+      color: #573100;
+    }
+
+    .badge.safe {
+      border-color: #acd2bd;
+      background: var(--green-soft);
+      color: #123f29;
+    }
+
+    .badge.info {
+      border-color: #b8cee1;
+      background: var(--blue-soft);
+      color: #173a5d;
+    }
+
+    .list-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list-grid li {
+      position: relative;
+      padding-left: 17px;
+    }
+
+    .list-grid li::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .table-wrap {
+      width: 100%;
+      margin: 14px 0;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel-strong);
+    }
+
+    table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #efe5d7;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .formula-card {
+      padding: 16px;
+      background: #201c18;
+      color: #fff3e2;
+    }
+
+    .formula {
+      display: block;
+      margin: 8px 0;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .glossary-card {
+      padding: 12px;
+    }
+
+    .glossary-term {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .glossary-card p {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .source-card {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    .source-card a {
+      color: var(--blue);
+      font-weight: 850;
+      overflow-wrap: anywhere;
+    }
+
+    .concept-visual {
+      padding: 16px;
+      background: #fbf4e8;
+    }
+
+    .visual-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
       margin-top: 12px;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 4px;
-      border: 1px solid rgba(113, 105, 95, 0.28);
-      background: var(--cream);
+    .visual-step {
+      min-height: 82px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel-strong);
+      font-size: 0.88rem;
+      font-weight: 750;
+    }
+
+    .visual-step span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .no-results {
+      display: none;
+      margin: 0 0 18px;
+      padding: 18px;
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius);
+      background: var(--panel-strong);
       color: var(--ink-soft);
-      padding: 4px 8px;
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 10px;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
+      font-weight: 800;
     }
 
-    .tag.safe {
-      background: var(--green-soft);
-      border-color: rgba(0, 127, 69, 0.2);
-      color: var(--green);
+    .no-results.visible {
+      display: block;
     }
 
-    .tag.review {
-      background: #fff7df;
-      border-color: rgba(201, 120, 18, 0.28);
-      color: #8d540c;
-    }
-
-    ul,
-    ol {
-      padding-left: 20px;
-      margin: 0 0 14px;
-    }
-
-    li {
-      margin-bottom: 7px;
-    }
-
-    .check-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .check-list li {
-      position: relative;
-      padding-left: 23px;
-    }
-
-    .check-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.72em;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-    }
-
-    .timeline {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 16px;
-      background: var(--surface-strong);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 14px;
-    }
-
-    .timeline-date {
-      font-family: "DM Mono", ui-monospace, monospace;
-      font-size: 12px;
-      color: var(--green);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .flow-step {
-      background: var(--surface-strong);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 14px;
-      min-height: 104px;
-      font-size: 13px;
-      position: relative;
-    }
-
-    .flow-step::after {
-      content: "";
-      position: absolute;
-      right: -8px;
-      top: 50%;
-      width: 14px;
-      height: 1px;
-      background: var(--rule);
-    }
-
-    .flow-step:last-child::after {
+    .drawer-backdrop {
       display: none;
     }
 
-    .flow-step strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--ink);
-    }
-
-    .source-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .source-links a {
-      display: block;
-      background: var(--surface-strong);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius);
-      padding: 12px 14px;
-      text-decoration: none;
-      font-size: 13px;
-      color: var(--blue);
-    }
-
-    .source-links a:hover {
-      border-color: var(--blue);
-      background: #f7fbff;
-    }
-
-    form {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    label {
-      display: grid;
-      gap: 6px;
-      font-weight: 700;
-      font-size: 13px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid var(--rule);
-      border-radius: 5px;
-      background: var(--surface-strong);
-      color: var(--ink);
-      font: inherit;
-      padding: 11px 12px;
-      min-height: 44px;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .form-help {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 2px;
-    }
-
-    .site-footer {
-      background: var(--ink);
-      color: rgba(246, 242, 234, 0.72);
-      margin-top: 40px;
-    }
-
-    .footer-inner {
-      max-width: var(--max);
+    .app-footer {
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 26px 24px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      font-size: 13px;
+      padding: 0 22px 34px;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-links a {
-      color: rgba(246, 242, 234, 0.86);
-    }
-
-    @media (max-width: 1020px) {
-      .layout {
-        grid-template-columns: 1fr;
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
 
-      .side-nav {
-        position: static;
-      }
-
-      .side-nav-list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-panel {
-        border-left: 0;
-        border-top: 1px solid var(--rule);
-      }
-
-      .flow {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .flow-step::after {
-        display: none;
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 1100px) {
       .header-inner {
-        padding: 12px 14px;
+        grid-template-columns: auto 1fr;
       }
 
-      .nav-toggle {
-        display: inline-flex;
+      .review-badge {
+        grid-column: 1 / -1;
+        justify-self: start;
+        max-width: none;
       }
 
-      .top-nav {
-        display: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 100%;
-        margin: 0;
-        padding: 10px 14px 14px;
-        background: var(--ink);
-        border-bottom: 3px solid var(--amber);
-        justify-content: flex-start;
-      }
-
-      .top-nav.open {
-        display: flex;
-      }
-
-      .layout {
-        padding: 18px 12px 50px;
+      .app-shell {
         gap: 18px;
       }
 
-      .side-nav-list {
-        grid-template-columns: 1fr;
+      .grid.three,
+      .grid.four,
+      .glossary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 860px) {
+      :root {
+        --header-height: 132px;
       }
 
-      .brand-title {
-        max-width: 230px;
+      .header-inner {
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+        padding: 10px 14px;
       }
 
-      .brand-sub {
-        display: none;
+      .menu-button {
+        display: inline-flex;
+        order: -1;
       }
 
-      .hero-copy {
-        padding: 28px 20px;
+      .brand {
+        min-width: 0;
       }
 
-      .hero-panel {
+      .header-tools {
+        grid-column: 1 / -1;
+      }
+
+      .review-badge {
+        grid-column: 1 / -1;
+      }
+
+      .app-shell {
+        display: block;
+        padding: 14px 14px 34px;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 150;
+        width: min(86vw, 340px);
+        height: 100vh;
+        border-radius: 0;
+        transform: translateX(-105%);
+        transition: transform 180ms ease;
+      }
+
+      body.nav-open .sidebar {
+        transform: translateX(0);
+      }
+
+      .drawer-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 140;
+        display: block;
+        border: 0;
+        background: rgba(0, 0, 0, 0.42);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease;
+      }
+
+      body.nav-open .drawer-backdrop {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .topic-section {
         padding: 18px;
-      }
-
-      .section {
-        margin-top: 18px;
-        padding: 22px 16px;
       }
 
       .grid.two,
       .grid.three,
-      .source-links,
-      .form-grid {
+      .grid.four,
+      .source-grid,
+      .glossary-grid,
+      .list-grid {
         grid-template-columns: 1fr;
       }
 
-      .timeline-item {
+      .visual-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      :root {
+        --header-height: 152px;
+      }
+
+      .brand-title {
+        font-size: 0.98rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.76rem;
+      }
+
+      .header-tools {
         grid-template-columns: 1fr;
       }
 
-      .flow {
-        grid-template-columns: 1fr;
+      .match-count {
+        white-space: normal;
       }
 
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
+      h1 {
+        font-size: 2rem;
+      }
+
+      .topic-section {
+        padding: 16px;
+      }
+
+      .visual-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      .app-header,
+      .sidebar,
+      .drawer-backdrop {
+        display: none !important;
+      }
+
+      .app-shell {
+        display: block;
+        max-width: none;
+        padding: 0;
+      }
+
+      .topic-section {
+        break-inside: avoid;
+        box-shadow: none;
       }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
+  <header class="app-header">
     <div class="header-inner">
-      <a class="brand" href="#home" aria-label="Electrical Safety and Services in Northern Ireland home">
-        <span class="brand-title">Electrical Safety &amp; Services in Northern Ireland</span>
-        <span class="brand-sub">Customer information only</span>
+      <button class="menu-button" type="button" aria-controls="sidebar" aria-expanded="false">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        Topics
+      </button>
+
+      <a class="brand" href="#scope-safety" aria-label="NI Electrical Revision Reference home">
+        <span class="brand-title">NI Electrical Revision Reference</span>
+        <span class="brand-subtitle">Compact UK/Northern Ireland electrical revision notes for competent-person learning and recap.</span>
       </a>
-      <button class="nav-toggle" type="button" aria-controls="top-nav" aria-expanded="false">Menu</button>
-      <nav class="top-nav" id="top-nav" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#rewires">Rewires</a>
-        <a href="#landlords">Landlords</a>
-        <a href="#compliance">NI compliance</a>
-        <a href="#contact" class="quote-link">Request a quote</a>
-      </nav>
+
+      <div class="header-tools">
+        <div class="search-wrap">
+          <label class="visually-hidden" for="topic-search">Search revision topics</label>
+          <input id="topic-search" type="search" placeholder="Search topics, tests, terms..." autocomplete="off">
+          <button class="clear-search" type="button" hidden>Clear</button>
+        </div>
+        <div class="match-count" aria-live="polite">Showing all topics</div>
+      </div>
+
+      <div class="review-badge">Review status: draft revision resource - technical review required</div>
     </div>
   </header>
 
-  <div class="layout">
-    <aside class="side-nav" aria-label="Section navigation">
-      <div class="side-nav-title">Site sections</div>
-      <div class="side-nav-list">
-        <a href="#home">Home</a>
-        <a href="#services">Services overview</a>
-        <a href="#rewires">House rewires</a>
-        <a href="#consumer-units">Consumer units</a>
-        <a href="#landlords">Landlord EICR</a>
-        <a href="#testing">Inspection &amp; testing</a>
-        <a href="#ev-chargers">EV chargers</a>
-        <a href="#alarms">Smoke, heat &amp; CO alarms</a>
-        <a href="#sockets-lighting">Sockets &amp; lighting</a>
-        <a href="#bathrooms-kitchens">Bathrooms &amp; kitchens</a>
-        <a href="#earthing">Earthing &amp; bonding</a>
-        <a href="#outbuildings">Outbuildings</a>
-        <a href="#compliance">NI compliance</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#legal">Legal</a>
-        <a href="#privacy">Privacy</a>
-      </div>
+  <button class="drawer-backdrop" type="button" aria-label="Close topic navigation"></button>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Revision topic navigation">
+      <p class="sidebar-heading">Revision topics</p>
+
+      <nav>
+        <section class="nav-group" aria-labelledby="nav-start">
+          <h2 class="nav-group-title" id="nav-start">Start</h2>
+          <a href="#scope-safety">Scope &amp; safety</a>
+          <a href="#how-to-use">How to use this reference</a>
+          <a href="#source-policy">Source/update policy</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-core">
+          <h2 class="nav-group-title" id="nav-core">Core principles</h2>
+          <a href="#safe-isolation">Safe isolation</a>
+          <a href="#core-principles">Electrical safety principles</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-bs">
+          <h2 class="nav-group-title" id="nav-bs">BS 7671 concepts</h2>
+          <a href="#bs7671-note">Current-edition note</a>
+          <a href="#glossary">Terminology glossary</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-circuits">
+          <h2 class="nav-group-title" id="nav-circuits">Circuits</h2>
+          <a href="#circuit-concepts">Circuit concepts</a>
+          <a href="#kitchens-high-load">High-load equipment</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-design">
+          <h2 class="nav-group-title" id="nav-design">Cable and design</h2>
+          <a href="#cable-design">Cable and design concepts</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-protection">
+          <h2 class="nav-group-title" id="nav-protection">Protection</h2>
+          <a href="#protection-devices">Consumer units and devices</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-earth">
+          <h2 class="nav-group-title" id="nav-earth">Earthing and bonding</h2>
+          <a href="#earthing-bonding">Supply types and bonding</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-testing">
+          <h2 class="nav-group-title" id="nav-testing">Inspection and testing</h2>
+          <a href="#inspection-testing">Testing and certification</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-special">
+          <h2 class="nav-group-title" id="nav-special">Special locations/systems</h2>
+          <a href="#bathrooms-special-locations">Bathrooms</a>
+          <a href="#outdoor-outbuildings">Outdoors and outbuildings</a>
+          <a href="#ev-charging">EV charging</a>
+          <a href="#alarms">Smoke, heat and CO alarms</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-ni">
+          <h2 class="nav-group-title" id="nav-ni">Northern Ireland compliance</h2>
+          <a href="#ni-compliance">NI compliance recap</a>
+          <a href="#private-tenancy-eicr">Private tenancy checks</a>
+        </section>
+
+        <section class="nav-group" aria-labelledby="nav-tools">
+          <h2 class="nav-group-title" id="nav-tools">Revision tools</h2>
+          <a href="#diagram-policy">Diagram policy</a>
+          <a href="#manual-review">Manual review required</a>
+          <a href="#source-library">Source library</a>
+        </section>
+      </nav>
+
+      <p class="sidebar-note">Use search for quick recap. Hidden search results do not remove content from the page source.</p>
     </aside>
 
-    <main id="main">
-      <section class="hero" id="home" aria-labelledby="home-title">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <h1 id="home-title">Electrical services and safety guidance for homes in Northern Ireland</h1>
-            <p class="hero-subtitle">Clear, practical information about rewires, consumer units, EICRs, landlord checks, EV chargers, alarms, lighting and sockets - without unsafe DIY wiring advice.</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#contact">Request a quote</a>
-              <a class="button button-secondary" href="#services">View electrical safety guidance</a>
-            </div>
-          </div>
-          <div class="hero-panel" aria-label="Electrical work process overview">
-            <div class="process-card">
-              <div class="process-title">Customer process</div>
-              <div class="process-step"><span>1</span><p>Discuss the property, problem, timescale and any known documentation.</p></div>
-              <div class="process-step"><span>2</span><p>A competent electrician assesses the installation and project requirements.</p></div>
-              <div class="process-step"><span>3</span><p>Work is designed, installed, inspected, tested and documented as required.</p></div>
-              <div class="process-step"><span>4</span><p>Customers receive clear advice, circuit information and the relevant certificate or report.</p></div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main id="main" class="content">
+      <div class="no-results" id="no-results">No matching revision topic found.</div>
 
-      <section class="section" aria-labelledby="safety-notice">
-        <div class="notice safety">
-          <div class="notice-title" id="safety-notice">Electrical safety notice</div>
-          <p>This website is for general customer education only. It is not a DIY wiring guide. Electrical installation work must be designed, installed, inspected and tested by a competent person using the current edition of BS 7671 and any applicable Northern Ireland legal, Building Control, tenancy, workplace, manufacturer and network-operator requirements.</p>
-          <p>Do not remove covers, alter circuits, work inside a consumer unit, connect fixed equipment, carry out live testing, or rely on wire colours alone unless you are competent and authorised to do so.</p>
+      <section class="topic-section start-section" id="scope-safety" data-topic data-keywords="scope safety competent person apprentice improver qualified electrical worker revision not diy shock burns fire injury death">
+        <div class="section-header">
+          <span class="section-label">Start</span>
+          <h1>NI Electrical Revision Reference</h1>
+          <p class="lead">Compact UK/Northern Ireland electrical revision notes for competent-person learning and recap.</p>
         </div>
-      </section>
+        <p>This app is a revision/reference aid for UK and Northern Ireland electrical learning and recap. It is aimed at competent persons, apprentices, improvers and qualified electrical workers who need a compact way to revise principles, terminology, test purposes and compliance context.</p>
+        <p>It is not a substitute for BS 7671, employer procedures, manufacturer instructions, site risk assessments, supervision or formal training.</p>
+        <p>Do not use this app as a public DIY wiring guide. Electrical work can cause electric shock, burns, fire, injury or death if designed, installed, isolated, tested or documented incorrectly.</p>
 
-      <section class="section" id="services" aria-labelledby="services-title">
-        <p class="section-kicker">Services overview</p>
-        <h2 id="services-title">Electrical service information</h2>
-        <p class="lead">The services below are presented as customer guidance. Actual availability, qualifications, insurance, accreditations and service area must be confirmed before publication.</p>
         <div class="grid three">
           <article class="card">
-            <h3>Rewires</h3>
-            <p>Assessment-led full or partial rewire information for homes that may be old, damaged, repeatedly faulty or unsuitable for current use.</p>
-            <div class="tag-row"><span class="tag safe">Customer guide</span><span class="tag review">Service claim to confirm</span></div>
+            <h3>Competence first</h3>
+            <p>Only carry out electrical work that you are competent, authorised and equipped to do. If unsure, stop and ask a supervisor, qualified electrician, designer or inspector.</p>
           </article>
           <article class="card">
-            <h3>Consumer units</h3>
-            <p>Upgrade guidance covering assessment, circuit condition, earthing, bonding, inspection, testing and documentation.</p>
-            <div class="tag-row"><span class="tag safe">No connection diagrams</span><span class="tag review">Manual review</span></div>
+            <h3>Current standard</h3>
+            <p>BS 7671 changes over time. Treat edition/amendment references as review points and confirm against the current standard before relying on them.</p>
           </article>
           <article class="card">
-            <h3>EICRs and landlord checks</h3>
-            <p>Electrical safety report information for rented property duties, inspection intervals and tenant report sharing.</p>
-            <div class="tag-row"><span class="tag safe">NI tenancy focus</span><span class="tag review">Manual review</span></div>
-          </article>
-          <article class="card">
-            <h3>EV chargers</h3>
-            <p>Customer-level home charge point information covering installer surveys, supply/load assessment and NIE Networks notification.</p>
-            <div class="tag-row"><span class="tag safe">Installer-led</span><span class="tag review">Service claim to confirm</span></div>
-          </article>
-          <article class="card">
-            <h3>Lighting and sockets</h3>
-            <p>Safe, non-procedural guidance about common alterations and why existing wiring must be identified and tested.</p>
-            <div class="tag-row"><span class="tag safe">No terminal instructions</span></div>
-          </article>
-          <article class="card">
-            <h3>Alarms and rented homes</h3>
-            <p>Smoke, heat and carbon monoxide alarm information for Northern Ireland private rented properties.</p>
-            <div class="tag-row"><span class="tag safe">NI private tenancy</span><span class="tag review">Manual review</span></div>
+            <h3>Revision, not instruction</h3>
+            <p>These notes explain concepts and checks. They do not replace project-specific design, safe isolation, inspection, testing or certification.</p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="rewires" aria-labelledby="rewires-title">
-        <p class="section-kicker">House Rewires Northern Ireland | What to Expect</p>
-        <h2 id="rewires-title">House rewires in Northern Ireland</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
-        <p>A house rewire is major electrical work. It normally involves design, circuit planning, safe isolation, removal or replacement of existing wiring, first fix, consumer unit work, second fix, inspection, testing and certification.</p>
-        <p>This page explains what a customer can expect during a rewire. It is not a DIY guide and must not be used as installation instructions.</p>
+      <section class="topic-section" id="how-to-use" data-topic data-keywords="how to use reference revision notes field recap common mistake verify glossary formula cards checklists">
+        <div class="section-header">
+          <span class="section-label">Start</span>
+          <h2>How to use this reference</h2>
+        </div>
         <div class="grid two">
           <article class="card">
-            <h3>When a rewire may be needed</h3>
-            <p>A rewire may be recommended where an installation is old, damaged, unsafe, repeatedly faulty, unsuitable for modern loads, lacking adequate earthing or bonding, affected by alterations, or found unsatisfactory after inspection and testing. The need for a full or partial rewire should be confirmed by a competent electrician after assessment.</p>
+            <h3>Use it for recap</h3>
+            <p>Use the topic cards, tables and glossary to refresh concepts before study, supervised work, inspection discussion or documentation review.</p>
           </article>
           <article class="card">
-            <h3>What customers should receive</h3>
-            <p>After electrical installation work, customers should receive the appropriate certificate or report for the work carried out. The exact document depends on the type of work. Examples include an Electrical Installation Certificate, a Minor Electrical Installation Works Certificate, or an Electrical Installation Condition Report. The person responsible for the work should explain what document applies.</p>
+            <h3>Check before relying</h3>
+            <p>Any design, installation, inspection, testing, certification or legal decision must be checked against current standards, instructions and competent judgement.</p>
           </article>
         </div>
-        <h3>What the electrician will assess</h3>
-        <ul class="check-list">
-          <li>existing wiring condition</li>
-          <li>consumer unit and protective devices</li>
-          <li>earthing and bonding</li>
-          <li>socket, lighting and fixed equipment needs</li>
-          <li>bathroom, kitchen and outdoor requirements</li>
-          <li>smoke, heat and CO alarm requirements where applicable</li>
-          <li>EV charger or future load requirements where applicable</li>
-          <li>cable routes and disruption</li>
-          <li>inspection, testing and certification/reporting requirements</li>
-        </ul>
-        <div class="notice safety"><div class="notice-title">Important</div><p>Do not attempt a rewire yourself unless you are competent to design, install, inspect and test electrical installations and issue the correct documentation. Unsafe electrical work can cause electric shock, fire, injury, death and serious property damage.</p></div>
-      </section>
-
-      <section class="section" id="consumer-units" aria-labelledby="consumer-title">
-        <p class="section-kicker">Consumer Unit Upgrades Northern Ireland</p>
-        <h2 id="consumer-title">Consumer unit upgrades</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
-        <p>A consumer unit upgrade is not just swapping a box. It requires assessment of the existing installation, supply characteristics, earthing and bonding, circuit condition, prospective fault current, maximum demand, protective device selection, RCD/RCBO requirements, SPD requirements, labelling, inspection, testing and certification.</p>
-        <p>Modern domestic consumer units commonly use non-combustible enclosures, clearly labelled circuits, residual current protection and surge protection where required by the design. RCBOs are often used to reduce inconvenience from faults, but the final arrangement must be selected by the competent person responsible for the design and verification.</p>
-        <p>Consumer unit work should be carried out by a competent electrician. Customers should expect pre-work checks, inspection and testing, clear circuit labelling, and the appropriate certificate or report after completion.</p>
-        <div class="notice safety"><div class="notice-title">Important</div><p>Do not remove a consumer unit cover or work inside a consumer unit unless competent and authorised.</p></div>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>Consumer unit wording must be checked by a qualified electrician before publication. This section intentionally avoids terminal, busbar, meter-tail and device-connection instructions.</p></div>
-      </section>
-
-      <section class="section" id="landlords" aria-labelledby="landlords-title">
-        <p class="section-kicker">Landlord EICR Northern Ireland | Electrical Safety Checks</p>
-        <h2 id="landlords-title">Landlord electrical safety checks in Northern Ireland</h2>
-        <p>Private landlords in Northern Ireland must have the fixed electrical installation in rented properties inspected and tested by a qualified person at least every 5 years, or sooner if the report requires it.</p>
-        <p>The inspection covers fixed electrical parts such as wiring, socket outlets, light fittings, consumer units and permanently connected equipment such as showers and extractor fans. It does not normally cover tenants' own plug-in appliances.</p>
-        <p>Landlords must obtain an electrical safety report, give the report to the tenant, give it to a new tenant before they occupy the property, provide it to a prospective tenant when required, provide it to the council if requested, and keep a copy for the next inspection.</p>
-        <p>If the report requires further investigation or remedial work, the landlord must arrange the required work within the stated period. A qualified person should carry out the work and written confirmation should be provided where required.</p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">1 April 2025</div>
-            <p>The NI private tenancy electrical safety requirements apply to new private tenancies granted on or after this date.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">1 December 2025</div>
-            <p>Existing tenancies granted before 1 April 2025 must comply by this date.</p>
-          </div>
+        <div class="note warning">
+          <span class="note-title">Safe framing</span>
+          <p>The content explains purpose, principle, common mistakes and what to verify. It does not provide public step-by-step installation or live-testing instructions.</p>
         </div>
-        <div class="notice info"><div class="notice-title">Qualified person wording</div><p>A qualified person should be competent to carry out the inspection, testing and any further investigative or remedial work in accordance with electrical safety standards. Landlords should check competence, suitable qualifications, insurance, inspection/testing experience and, where applicable, registration with a recognised electrical trade body.</p></div>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>All EICR and private tenancy wording must be reviewed against current Department for Communities guidance before publication.</p></div>
       </section>
 
-      <section class="section" id="testing" aria-labelledby="testing-title">
-        <p class="section-kicker">Inspection and Testing Northern Ireland</p>
-        <h2 id="testing-title">Inspection, testing and electrical certificates</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
-        <p>Electrical inspection and testing is a specialist task. New circuits, consumer unit changes, rewires and many alterations require suitable inspection and testing using appropriate calibrated equipment.</p>
-        <p>Depending on the work, inspection and testing may include visual inspection, continuity, insulation resistance, polarity, earth fault loop impedance, prospective fault current, RCD/RCBO checks and functional checks. The competent person carrying out the work should understand the installation, the current edition of BS 7671, and the correct documentation required.</p>
+      <section class="topic-section" id="source-policy" data-topic data-keywords="source update policy review status official sources BS 7671 NI tenancy Building Control EV alarms HSENI NIE Networks">
+        <div class="section-header">
+          <span class="section-label">Start</span>
+          <h2>Source and update policy</h2>
+        </div>
+        <p>Electrical standards and Northern Ireland legal duties can change. This app should show a visible review date and source library. Any section involving BS 7671, NI tenancy law, Building Control, EV charging, alarms, inspection/testing, special locations, earthing or bonding should be reviewed before publication and periodically after.</p>
+        <div class="badge-row">
+          <span class="badge review">Needs competent review</span>
+          <span class="badge info">Source links retained</span>
+          <span class="badge safe">No copied standards tables</span>
+        </div>
+        <div class="note review">
+          <span class="note-title">Review status</span>
+          <p>Draft revision resource - technical review required before relying on the material.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="bs7671-note" data-topic data-keywords="BS 7671 current edition amendment A4 2026 transition IET BSI JPEL 64 standards wiring regulations">
+        <div class="section-header">
+          <span class="section-label">BS 7671 concepts</span>
+          <h2>BS 7671 current-edition note</h2>
+        </div>
+        <p>BS 7671 is updated by amendments. As of 2026, BS 7671:2018+A4:2026 has been published. During the transition period, the previous edition remains valid until 15 October 2026. After transition, check the latest IET/BSI position before relying on edition wording.</p>
+        <p>Do not hard-code detailed design answers from memory. For design, installation, inspection and testing decisions, check the current standard, manufacturer instructions and project documentation.</p>
+        <div class="note review">
+          <span class="note-title">Needs competent review</span>
+          <p>Edition/amendment wording must be checked against current IET/BSI information before publication and after future amendments.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="ni-compliance" data-topic data-keywords="Northern Ireland compliance Part P correction Technical Booklet P Building Control domestic work HSENI workplace Electricity at Work">
+        <div class="section-header">
+          <span class="section-label">Northern Ireland compliance</span>
+          <h2>Northern Ireland compliance recap</h2>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Part P correction</h3>
+            <p>Northern Ireland does not use the same domestic electrical Part P system as England and Wales. Do not assume England/Wales notification or self-certification rules apply in Northern Ireland.</p>
+          </article>
+          <article class="card">
+            <h3>Domestic electrical work</h3>
+            <p>Electrical Safety First states that Northern Ireland currently has no statutory domestic electrical installation requirement equivalent to England/Wales Part P. That does not mean work can be unsafe or undocumented. Electrical work should still be designed, installed, inspected and tested by competent persons to the current edition of BS 7671 and any applicable project, insurance, manufacturer, tenancy, workplace or Building Control requirements.</p>
+          </article>
+          <article class="card">
+            <h3>Technical Booklet P correction</h3>
+            <p>Do not describe Northern Ireland Technical Booklet P as electrical safety guidance. Technical Booklet P relates to sanitary appliances, unvented hot water storage systems and reducing the risk of scalding.</p>
+          </article>
+          <article class="card">
+            <h3>When Building Control may still matter</h3>
+            <p>Electrical work can still be relevant to wider Building Regulations-controlled projects, such as new builds, extensions, conversions, major alterations, fire safety work or controlled building work. Confirm project-specific requirements with the relevant authority and competent persons.</p>
+          </article>
+        </div>
+        <div class="note safe">
+          <span class="note-title">Workplace context</span>
+          <p>For workplaces, HSENI guidance expects electrical systems and equipment to be selected, erected and tested to appropriate standards such as BS 7671 for installations up to 1000 V. HSENI also states that only competent persons should carry out work on electrical systems and that isolation and testing should take place before work.</p>
+        </div>
+        <div class="note review">
+          <span class="note-title">Needs competent review</span>
+          <p>NI compliance content must be checked against current official sources before publication.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="safe-isolation" data-topic data-keywords="safe isolation lock off prove dead voltage indicator GS38 borrowed neutral backfeed UPS PV generator control circuits">
+        <div class="section-header">
+          <span class="section-label">Core principles</span>
+          <h2>Safe isolation</h2>
+        </div>
+        <p>Safe isolation is the process used to prevent dangerous voltage being present at the point of work. It is a life-critical control, not a paperwork exercise.</p>
         <div class="grid three">
           <article class="card">
-            <h3>Electrical Installation Certificate</h3>
-            <p>Normally used for new installations, rewires, new circuits and significant installation work.</p>
+            <h3>What it proves</h3>
+            <ul>
+              <li>the correct circuit/equipment has been isolated</li>
+              <li>the isolation is secure</li>
+              <li>the point of work has been proved dead</li>
+              <li>the test equipment is known to be working</li>
+            </ul>
           </article>
           <article class="card">
-            <h3>Minor Electrical Installation Works Certificate</h3>
-            <p>Normally used for certain small additions or alterations that do not include a new circuit.</p>
+            <h3>Core principles</h3>
+            <ul>
+              <li>identify the correct circuit/equipment</li>
+              <li>isolate all relevant live conductors/supplies</li>
+              <li>secure isolation against re-energisation</li>
+              <li>display warning/lock-off where appropriate</li>
+              <li>prove the voltage indicator before and after testing</li>
+              <li>test at the point of work</li>
+            </ul>
           </article>
           <article class="card">
-            <h3>Electrical Installation Condition Report</h3>
-            <p>Used to report on the condition of an existing installation after inspection and testing.</p>
+            <h3>Common mistakes</h3>
+            <ul>
+              <li>switching off a light switch and assuming the circuit is dead</li>
+              <li>relying on labels without verification</li>
+              <li>relying on conductor colours</li>
+              <li>forgetting borrowed/shared neutrals</li>
+              <li>not locking off</li>
+              <li>testing the wrong point</li>
+            </ul>
           </article>
         </div>
-        <div class="notice info"><div class="notice-title">Important</div><p>The test button on an RCD or RCBO is a user functional check only. It is not a substitute for formal inspection and testing by a competent person.</p></div>
-        <div class="notice safety"><div class="notice-title">Unsafe shortcuts are not acceptable</div><p>Any unsatisfactory test result must be assessed and corrected by the competent person responsible for the work. Protective devices must not be used as a casual workaround for poor design, poor earthing, damaged wiring or inadequate verification.</p></div>
-      </section>
-
-      <section class="section" id="ev-chargers" aria-labelledby="ev-title">
-        <p class="section-kicker">EV Charger Installation Northern Ireland</p>
-        <h2 id="ev-title">EV charger installations in Northern Ireland</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
-        <p>Home EV charge points should be installed by suitably qualified specialist installers. EV chargers introduce high continuous loads and require proper assessment of the supply, maximum demand, earthing arrangement, open-PEN/PME protection, cable route, protective devices, RCD requirements, manufacturer instructions and network requirements.</p>
-        <p>In Northern Ireland, NIE Networks must be notified of an EV charge point installation. The installer normally provides capacity and testing information as part of this process.</p>
-        <p>Do not assume that an earth rod is always required, always prohibited, or always sufficient. The correct earthing/open-PEN solution depends on the charge point, supply arrangement, manufacturer instructions, current BS 7671 requirements and NIE Networks requirements.</p>
-        <div class="flow" aria-label="EV charger process overview">
-          <div class="flow-step"><strong>Customer need</strong>Charging location, vehicle use and property constraints.</div>
-          <div class="flow-step"><strong>Installer survey</strong>Existing supply, route and installation condition.</div>
-          <div class="flow-step"><strong>Design checks</strong>Load, earthing, protection and manufacturer requirements.</div>
-          <div class="flow-step"><strong>NIE process</strong>Network notification or application handled by the installer.</div>
-          <div class="flow-step"><strong>Documentation</strong>Inspection, testing and customer handover.</div>
+        <div class="note warning">
+          <span class="note-title">Revision only</span>
+          <p>Follow employer procedure, GS38-compatible test equipment requirements, site rules and supervision. Consider stored energy, alternative supplies, borrowed neutrals, backfeeds, UPS, PV, generators and control circuits.</p>
         </div>
-        <div class="notice info"><div class="notice-title">Grant wording</div><p>Grant schemes and eligibility rules change. Check current official government/OZEV guidance before advertising any grant amount.</p></div>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>EV charger wording, grant references, NIE Networks process wording and any service claim must be checked before publication.</p></div>
       </section>
 
-      <section class="section" id="alarms" aria-labelledby="alarms-title">
-        <p class="section-kicker">Smoke, Heat and CO Alarms Northern Ireland Private Rentals</p>
-        <h2 id="alarms-title">Smoke, heat and carbon monoxide alarms in Northern Ireland private rented properties</h2>
-        <p>Private landlords in Northern Ireland must install and keep in proper working order sufficient smoke, heat and carbon monoxide alarms in rented properties. The landlord remains responsible for compliance even if an agent manages the property.</p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-date">1 September 2024</div>
-            <p>The private tenancy alarm requirements apply to new private tenancies granted on or after this date.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">1 December 2024</div>
-            <p>Existing tenancies granted before 1 September 2024 had to comply by this date.</p>
-          </div>
+      <section class="topic-section" id="core-principles" data-topic data-keywords="shock protection fire protection fault paths ADS automatic disconnection of supply RCD RCBO overload short circuit loose connections thermal insulation arcing">
+        <div class="section-header">
+          <span class="section-label">Core principles</span>
+          <h2>Core electrical safety principles</h2>
         </div>
-        <h3>Minimum alarms</h3>
-        <ul class="check-list">
-          <li>one smoke alarm in the room most frequently used for general daytime living, normally the living room or lounge</li>
-          <li>one smoke alarm in every circulation space, such as halls, stairs, landings or corridors</li>
-          <li>one heat alarm in every kitchen</li>
-          <li>one carbon monoxide alarm in any room or circulation space containing a flue, including a chimney of an open fire not put beyond use, and/or a fixed combustion appliance other than a gas cooker or gas oven</li>
-        </ul>
-        <p>Smoke and heat alarms must be ceiling mounted and interlinked. They must be installed and maintained in accordance with the relevant British Standard. Carbon monoxide alarms can be ceiling or wall mounted according to the manufacturer's instructions and relevant guidance.</p>
-        <p>If smoke, heat or carbon monoxide alarms are hardwired into the main electrical installation, the work must be carried out by a qualified electrician.</p>
-        <p>If mains wired alarms were installed to comply with Building Control requirements, for example when the property was built or extended, they must not be disabled. If they require replacement, they should be replaced in a way that maintains compliance.</p>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>Alarm layout visuals and private tenancy wording must be checked against current NI guidance before publication.</p></div>
-      </section>
-
-      <section class="section" id="sockets-lighting" aria-labelledby="sockets-title">
-        <p class="section-kicker">Lighting and socket guidance</p>
-        <h2 id="sockets-title">Sockets and lighting</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
-        <p>Socket and lighting alterations should be designed and tested by a competent person. The electrician will consider the existing circuit, load, protective device, RCD/RCBO protection, cable route, safe zones, earthing/CPC continuity, accessories, environmental conditions and inspection/testing requirements.</p>
-        <p>Lighting circuits can include permanent line, neutral, switched line and CPC conductors. Existing installations may use older cable colours, borrowed neutrals, junction boxes, two-plate or three-plate wiring methods, or previous alterations. Do not rely on colour alone. Identification and testing are required.</p>
-        <div class="notice info"><div class="notice-title">Diagram policy</div><p>All socket and lighting diagrams must be simplified concepts only, not terminal diagrams. This site does not publish conductor termination instructions.</p></div>
-        <h3>Electrical joints</h3>
-        <p>Electrical joints should normally remain accessible for inspection, testing and maintenance. Where a joint is intended to be maintenance-free, the complete jointing system, including connector and enclosure, must be rated and installed exactly to the manufacturer's instructions and suitable for the environment.</p>
-        <p>A connector on its own should not be described as a buried or maintenance-free joint.</p>
-      </section>
-
-      <section class="section" id="bathrooms-kitchens" aria-labelledby="bath-kitchen-title">
-        <p class="section-kicker">Bathrooms, kitchens and high-load circuits</p>
-        <h2 id="bath-kitchen-title">Bathroom electrical work and high-load circuits</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
         <div class="grid two">
           <article class="card">
-            <h3>Bathroom electrical work</h3>
-            <p>Bathrooms and shower rooms are special locations because the risk of electric shock is higher. Electrical work in these areas must be designed and installed with suitable equipment, appropriate IP ratings, correct locations, RCD/RCBO protection, bonding considerations, safe isolation, inspection and testing.</p>
-            <p>Electric showers, extractor fans, towel rails, underfloor heating, lighting, shaver supplies and switches must be assessed against the current edition of BS 7671, including the requirements for bathrooms and shower rooms.</p>
-            <p>Do not use this website to decide where to fit bathroom electrical equipment. The final design and equipment selection must be confirmed by a competent electrician.</p>
+            <h3>Shock protection</h3>
+            <p>Revision topics include basic protection, fault protection, additional protection, barriers, enclosures, insulation, automatic disconnection of supply and the role and limitations of RCD/RCBO protection.</p>
           </article>
           <article class="card">
-            <h3>Kitchen and high-load circuits</h3>
-            <p>Kitchens often contain high-load fixed equipment such as ovens, hobs, cookers, dishwashers, washing machines, dryers, boiling-water taps and extraction equipment. Electric showers and EV chargers can also place heavy loads on an installation.</p>
-            <p>Circuit design cannot be chosen from a simple table. The electrician must assess the appliance rating, manufacturer instructions, maximum demand, diversity where applicable, cable route, installation method, grouping, insulation, ambient temperature, voltage drop, protective device, fault protection and RCD/RCBO requirements.</p>
-            <p>Any example values on this website are general context only and must not be used as design or installation instructions.</p>
+            <h3>Fire protection</h3>
+            <p>Common fire risks include overload, short-circuit faults, loose connections, poor terminations, thermal insulation effects, arcing faults, unsuitable equipment/enclosures and environmental conditions.</p>
+          </article>
+          <article class="card">
+            <h3>Fault path concept</h3>
+            <p>Understand line-to-CPC fault paths, the earth fault loop path, supply transformer return path, CPC continuity, earthing and protective bonding.</p>
+          </article>
+          <article class="card">
+            <h3>ADS recap</h3>
+            <p>The protective device must operate within required disconnection conditions. Zs and protective-device characteristics matter, and verification is required.</p>
           </article>
         </div>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>Bathroom zone wording and all high-load circuit wording must be checked by a qualified electrician before publication. No bathroom zone diagram is included.</p></div>
+        <div class="note warning">
+          <span class="note-title">Common mistake</span>
+          <p>Do not assume an RCD makes any poor circuit safe. RCD/RCBO protection has specific purposes and limitations.</p>
+        </div>
       </section>
 
-      <section class="section" id="earthing" aria-labelledby="earthing-title">
-        <p class="section-kicker">Earthing and protective bonding</p>
-        <h2 id="earthing-title">Earthing and protective bonding</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
-        <p>Earthing and protective bonding are essential safety measures. They help reduce the risk of electric shock by providing paths for fault current and by reducing dangerous voltage differences between conductive parts.</p>
-        <p>The correct arrangement depends on the supply type, main earthing terminal, service pipework, extraneous-conductive-parts, protective devices, cable sizes, distributor requirements and current BS 7671 design requirements.</p>
-        <p>Main protective bonding is not a cosmetic upgrade. It should be assessed and installed by a competent electrician where required.</p>
-        <div class="notice safety"><div class="notice-title">Important</div><p>Do not use this website to size earthing or bonding conductors. The correct size and arrangement must be confirmed by design.</p></div>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>Earthing and bonding wording must be checked by a qualified electrician before publication.</p></div>
+      <section class="topic-section" id="glossary" data-topic data-keywords="glossary terminology skilled person competent person line neutral CPC MET ADS RCD RCCB RCBO MCB SPD AFDD IP rating Zs Ze R1 R2 r1 rn r2 EIC MEIWC EICR C1 C2 C3 FI LIM PME TN-S TN-C-S TT">
+        <div class="section-header">
+          <span class="section-label">Revision tools</span>
+          <h2>Terminology glossary</h2>
+        </div>
+        <div class="glossary-grid">
+          <article class="glossary-card"><span class="glossary-term">BS 7671</span><p>UK standard for electrical installations, published with amendments and used as the core wiring regulations reference.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Skilled / competent person</span><p>A person with sufficient knowledge, training, experience and judgement for the task and risks involved.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Line conductor</span><p>Live conductor that can be at dangerous voltage with respect to neutral or earth.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Neutral conductor</span><p>Conductor connected to the supply neutral point and used as the return path in normal single-phase operation.</p></article>
+          <article class="glossary-card"><span class="glossary-term">CPC / protective conductor</span><p>Circuit protective conductor forming part of the protective fault path.</p></article>
+          <article class="glossary-card"><span class="glossary-term">MET</span><p>Main earthing terminal, where earthing, bonding and protective conductors connect as applicable.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Main protective bonding</span><p>Connection intended to reduce dangerous potential differences involving extraneous-conductive-parts.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Earthing conductor</span><p>Conductor connecting the main earthing terminal to the means of earthing.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Extraneous-conductive-part</span><p>Conductive part not forming part of the electrical installation that can introduce a potential, usually earth potential.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Exposed-conductive-part</span><p>Conductive part of equipment that can become live under fault conditions.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Basic protection</span><p>Protection against contact with live parts under normal conditions.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Fault protection</span><p>Protection against electric shock under single-fault conditions.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Additional protection</span><p>Supplementary protection measure used in specified situations, often involving RCD/RCBO protection.</p></article>
+          <article class="glossary-card"><span class="glossary-term">ADS</span><p>Automatic disconnection of supply, where a protective device disconnects a fault within required conditions.</p></article>
+          <article class="glossary-card"><span class="glossary-term">RCD / RCCB</span><p>Residual current device; detects imbalance between live conductors. An RCCB does not provide overcurrent protection by itself.</p></article>
+          <article class="glossary-card"><span class="glossary-term">RCBO</span><p>Device combining overcurrent protection and residual current protection for a circuit.</p></article>
+          <article class="glossary-card"><span class="glossary-term">MCB</span><p>Miniature circuit-breaker providing overcurrent protection within its rated characteristics.</p></article>
+          <article class="glossary-card"><span class="glossary-term">SPD</span><p>Surge protective device intended to limit transient overvoltages.</p></article>
+          <article class="glossary-card"><span class="glossary-term">AFDD</span><p>Arc fault detection device intended to detect certain arc fault conditions.</p></article>
+          <article class="glossary-card"><span class="glossary-term">IP rating</span><p>Ingress protection rating describing protection against solid objects and water ingress.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Zs</span><p>Earth fault loop impedance at a point in the installation.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Ze</span><p>External earth fault loop impedance of the supply at the origin, as relevant to the arrangement.</p></article>
+          <article class="glossary-card"><span class="glossary-term">R1+R2</span><p>Resistance of line conductor plus CPC for a circuit path, used in verification and fault path assessment.</p></article>
+          <article class="glossary-card"><span class="glossary-term">r1, rn, r2</span><p>End-to-end resistance values for ring final line, neutral and CPC conductors.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Insulation resistance</span><p>Test concept checking insulation condition between conductors.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Polarity</span><p>Verification that conductors and devices are arranged so live conductors are correctly controlled and protected.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Prospective fault current</span><p>Current that could flow under fault conditions at a point, relevant to equipment breaking capacity.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Voltage drop</span><p>Reduction in voltage along conductors caused by circuit load and impedance.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Diversity</span><p>Assessment of likely simultaneous load, applied with suitable guidance and judgement.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Final circuit</span><p>Circuit supplying current-using equipment or socket-outlets directly.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Distribution circuit</span><p>Circuit supplying a distribution board or similar distribution point.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Radial circuit</span><p>Final circuit running from origin to load points without returning to the origin.</p></article>
+          <article class="glossary-card"><span class="glossary-term">Ring final circuit</span><p>Final circuit where line, neutral and CPC conductors form a ring back to the origin.</p></article>
+          <article class="glossary-card"><span class="glossary-term">EIC</span><p>Electrical Installation Certificate for new installation work within its scope.</p></article>
+          <article class="glossary-card"><span class="glossary-term">MEIWC</span><p>Minor Electrical Installation Works Certificate for certain minor work within its scope.</p></article>
+          <article class="glossary-card"><span class="glossary-term">EICR</span><p>Electrical Installation Condition Report for an existing installation.</p></article>
+          <article class="glossary-card"><span class="glossary-term">C1 / C2 / C3 / FI / LIM</span><p>EICR observation classifications requiring competent judgement and current guidance.</p></article>
+          <article class="glossary-card"><span class="glossary-term">PME / TN-S / TN-C-S / TT</span><p>Supply earthing concepts. Confirm the actual arrangement on site; do not assume from appearance.</p></article>
+        </div>
       </section>
 
-      <section class="section" id="outbuildings" aria-labelledby="outbuildings-title">
-        <p class="section-kicker">Garage and Outbuilding Electrical Supplies Northern Ireland</p>
-        <h2 id="outbuildings-title">Garage and outbuilding electrical supplies</h2>
-        <div class="notice safety"><div class="notice-title">Short safety reminder</div><p>Customer information only - not installation instructions. Electrical work should be carried out by a competent electrician.</p></div>
-        <p>Detached garages, sheds and outbuildings require proper electrical design. The electrician must assess the supply type, earthing arrangement, extraneous-conductive-parts, bonding requirements, cable route, buried or exposed cable protection, RCD/RCBO protection, environmental conditions, load requirements and future use.</p>
-        <p>TT earthing is often used for detached outbuildings, but it is not a blanket rule for every installation. Exporting PME may or may not be appropriate depending on the installation. The earthing and bonding arrangement must be selected by a competent electrician after assessment.</p>
-        <div class="notice safety"><div class="notice-title">Outdoor work warning</div><p>Outdoor and buried electrical work is not suitable for DIY guidance. Cable routes, mechanical protection, depth, warning markers, glands, IP ratings, corrosion protection and testing must be handled by a competent person.</p></div>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>Outbuilding earthing, bonding and outdoor supply wording must be reviewed before publication.</p></div>
+      <section class="topic-section" id="circuit-concepts" data-topic data-keywords="lighting circuits switching permanent line switched line neutral CPC borrowed neutral two way intermediate sockets ring final radial spur FCU continuity smart controls LED driver SELV">
+        <div class="section-header">
+          <span class="section-label">Circuits</span>
+          <h2>Circuit concepts</h2>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>Lighting circuits</h3>
+            <p>Lighting circuits may contain permanent line, switched line, neutral and CPC conductors depending on wiring method. Older installations, alterations and different wiring methods can make conductor identification unreliable by colour alone. Identify by testing and documentation, not assumption.</p>
+            <ul>
+              <li>permanent line and switched line</li>
+              <li>neutral at switch vs neutral at light</li>
+              <li>CPC continuity</li>
+              <li>borrowed/shared neutrals risk</li>
+              <li>two-way/intermediate switching concept</li>
+              <li>smart controls and neutral requirement</li>
+              <li>SELV/driver considerations for LED lighting</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Socket circuits</h3>
+            <p>Socket-outlet circuits may be radial or ring final circuits. The circuit arrangement, protective device, cable route, loading, RCD/RCBO protection and test results must all be considered.</p>
+            <ul>
+              <li>radial concept</li>
+              <li>ring final concept</li>
+              <li>unfused spur concept</li>
+              <li>fused connection unit concept</li>
+              <li>load distribution</li>
+              <li>continuity of line, neutral and CPC</li>
+              <li>ring final testing purpose</li>
+              <li>limitations of visual inspection alone</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Dedicated / high-load circuits</h3>
+            <p>High-load or fixed equipment circuits require design around the actual load, manufacturer instructions, cable route, installation method, grouping, thermal insulation, voltage drop, protective device, isolation, RCD/RCBO requirements and certification.</p>
+            <ul>
+              <li>cooker, hob or oven</li>
+              <li>electric shower</li>
+              <li>immersion heater</li>
+              <li>EV charger</li>
+              <li>heat pump</li>
+              <li>outbuilding supply</li>
+              <li>workshop equipment</li>
+            </ul>
+          </article>
+        </div>
+        <div class="note warning">
+          <span class="note-title">No terminal diagrams</span>
+          <p>This module avoids terminal wiring diagrams, circuit ratings and cable-size recipes. Treat it as concept revision only.</p>
+        </div>
       </section>
 
-      <section class="section" id="cable-routes" aria-labelledby="routes-title">
-        <p class="section-kicker">Cable routes and building fabric</p>
-        <h2 id="routes-title">Cable routes and building fabric</h2>
-        <p>Cable routes must be planned carefully. Concealed cables, wall chases, floors, ceilings, joists, fire barriers, insulation, damp areas and hidden services all create safety and building risks.</p>
-        <p>Safe zones, mechanical protection, RCD protection, earthed metallic covering, accessibility, fire-stopping and structural restrictions must be assessed by a competent person. RCD protection does not make an unsuitable cable route automatically acceptable.</p>
-        <p>Do not chase walls, drill structural members, alter fire-stopping or run concealed cables based on website guidance. Existing buildings may contain asbestos, hidden services, fragile materials or structural elements that require separate assessment.</p>
+      <section class="topic-section" id="cable-design" data-topic data-keywords="cable selection current carrying capacity voltage drop Zs disconnection diversity grouping thermal effects design current protective device installation method ambient temperature mechanical protection">
+        <div class="section-header">
+          <span class="section-label">Cable and design</span>
+          <h2>Cable and design concepts</h2>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Cable selection factors</h3>
+            <ul>
+              <li>design current and future load</li>
+              <li>protective device rating/type</li>
+              <li>installation method and cable type</li>
+              <li>ambient temperature and grouping</li>
+              <li>thermal insulation and enclosure conditions</li>
+              <li>conductor material and circuit length</li>
+              <li>voltage drop and fault protection</li>
+              <li>mechanical protection and environment</li>
+              <li>manufacturer instructions and test results</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Current-carrying capacity concept</h3>
+            <p>Cable current-carrying capacity is not one fixed number. It depends on how the cable is installed and how heat can escape. Grouping, insulation, ambient temperature and enclosure conditions can reduce usable capacity.</p>
+          </article>
+        </div>
+
+        <div class="formula-card">
+          <h3>Voltage drop concept</h3>
+          <code class="formula">Vd = (mV/A/m x Ib x length) / 1000</code>
+          <p>Where mV/A/m is taken from the relevant cable data/table, Ib is design current, and length is circuit length in metres.</p>
+          <p>Use this as a revision formula only. Confirm permitted limits and values against current BS 7671 and cable data.</p>
+        </div>
+
+        <div class="grid three">
+          <article class="card">
+            <h3>Zs and disconnection</h3>
+            <p>Zs is the earth fault loop impedance at a point in the installation. It affects whether sufficient fault current will flow to operate the protective device within the required time. Zs depends on external loop impedance, circuit conductor resistance, temperature, connections and the protective path.</p>
+          </article>
+          <article class="card">
+            <h3>Diversity</h3>
+            <p>Diversity is an assessment of likely simultaneous load, not a guess to make a design fit. It must be applied using appropriate guidance, experience and the nature of the installation.</p>
+          </article>
+          <article class="card">
+            <h3>Grouping and thermal effects</h3>
+            <p>Cables grouped together or surrounded by insulation may run hotter. This can affect current-carrying capacity and protective device selection.</p>
+          </article>
+        </div>
+
+        <div class="note warning">
+          <span class="note-title">Design-dependent warning</span>
+          <p>Do not use this app to select final cable sizes or protective devices. Use current BS 7671, manufacturer data, design calculations and competent judgement. Do not use RCD/RCBO protection as a casual excuse for poor Zs or poor circuit design.</p>
+        </div>
       </section>
 
-      <section class="section" id="compliance" aria-labelledby="compliance-title">
-        <p class="section-kicker">Northern Ireland electrical compliance</p>
-        <h2 id="compliance-title">Northern Ireland electrical compliance</h2>
-        <p>Northern Ireland does not use the same domestic electrical Part P system as England and Wales. Do not assume that England/Wales notification or self-certification rules apply in Northern Ireland.</p>
-        <p>For ordinary domestic electrical installation work, Northern Ireland currently has no direct equivalent statutory domestic electrical requirement like England/Wales Part P. However, electrical work still needs to be safe and should be designed, installed, inspected and tested by a competent person to the current edition of BS 7671.</p>
-        <p>Other legal or formal requirements may still apply depending on the property and the work, including:</p>
-        <ul class="check-list">
-          <li>private rented property electrical safety duties</li>
-          <li>workplace duties under Northern Ireland health and safety law</li>
-          <li>Building Regulations requirements where electrical work forms part of wider building work</li>
+      <section class="topic-section" id="protection-devices" data-topic data-keywords="consumer unit protective devices MCB RCD RCCB RCBO SPD AFDD selectivity discrimination labels schedules overload short circuit residual current surge transient overvoltage">
+        <div class="section-header">
+          <span class="section-label">Protection</span>
+          <h2>Consumer units and protective devices</h2>
+        </div>
+        <p>A consumer unit brings together isolation, circuit protection, residual current protection where used, surge protection where fitted, circuit identification and distribution to final circuits. It is not just an enclosure.</p>
+        <div class="grid four">
+          <article class="card"><h3>MCB</h3><p>Overload and short-circuit protection with device-curve and current-rating concepts. Final choices depend on design and verification.</p></article>
+          <article class="card"><h3>RCD / RCCB</h3><p>Residual current principle: imbalance between line and neutral. Provides additional protection in specified contexts but not overload protection by itself. The test button is functional only, not formal verification.</p></article>
+          <article class="card"><h3>RCBO</h3><p>Combined overcurrent and residual current protection for one circuit. It can reduce loss of multiple circuits compared with shared RCD arrangements, but still requires design and testing.</p></article>
+          <article class="card"><h3>SPD</h3><p>Surge protection concept for transient overvoltages and equipment protection. Selection depends on risk, installation, current BS 7671 and equipment.</p></article>
+          <article class="card"><h3>AFDD</h3><p>Arc fault detection concept intended to detect certain arcing faults. Requirements/recommendations depend on current BS 7671, circuit type, premises and risk.</p></article>
+          <article class="card"><h3>Selectivity / discrimination</h3><p>Correct device operation nearest the fault, upstream/downstream coordination, nuisance tripping and whole-installation loss are key revision points.</p></article>
+          <article class="card"><h3>Labels and schedules</h3><p>Clear circuit identification, accurate schedules, test documentation and spare-way records support safe operation and future work.</p></article>
+          <article class="card"><h3>Limitations</h3><p>Protective devices do not remove the need for sound design, correct installation, inspection, testing and documentation.</p></article>
+        </div>
+        <div class="note warning">
+          <span class="note-title">Diagram boundary</span>
+          <p>Do not include internal consumer-unit wiring diagrams, meter-tail instructions or terminal instructions.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="earthing-bonding" data-topic data-keywords="earthing bonding supply types TN-S TN-C-S PME TT MET CPC main protective bonding extraneous conductive parts exposed conductive parts open PEN outbuildings EV">
+        <div class="section-header">
+          <span class="section-label">Earthing and bonding</span>
+          <h2>Earthing, bonding and supply types</h2>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Why earthing matters</h3>
+            <p>Earthing provides a reference to Earth and a path for fault current under fault conditions. It supports operation of protective devices and reduces electric shock risk when correctly designed.</p>
+          </article>
+          <article class="card">
+            <h3>Why bonding matters</h3>
+            <p>Protective bonding reduces dangerous potential differences between exposed-conductive-parts and extraneous-conductive-parts. It is not the same thing as earthing.</p>
+          </article>
+          <article class="card">
+            <h3>CPC</h3>
+            <p>The circuit protective conductor forms part of the fault path. Continuity matters and must be verified.</p>
+          </article>
+          <article class="card">
+            <h3>MET</h3>
+            <p>The main earthing terminal is a connection point for the earthing conductor, CPCs and bonding conductors as applicable. Arrangement varies by installation.</p>
+          </article>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Supply type</th>
+                <th>Basic concept</th>
+                <th>Revision notes</th>
+                <th>Cautions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TN-S</td>
+                <td>Separate supply neutral and earth paths from source.</td>
+                <td>Distributor earth may be provided by cable sheath or separate conductor.</td>
+                <td>Confirm actual supply; do not assume from appearance.</td>
+              </tr>
+              <tr>
+                <td>TN-C-S / PME</td>
+                <td>Neutral and earth combined in part of supply, separated at installation.</td>
+                <td>Common arrangement with open-PEN considerations.</td>
+                <td>EV, outbuildings and special cases need care.</td>
+              </tr>
+              <tr>
+                <td>TT</td>
+                <td>Installation uses local earth electrode for earthing.</td>
+                <td>Often relies on RCD protection because earth fault loop impedance can be higher.</td>
+                <td>Electrode resistance, RCDs, testing and maintenance matter.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note warning">
+          <span class="note-title">PME caution</span>
+          <p>This table is conceptual. Confirm the actual earthing arrangement on site. PME/TN-C-S arrangements need extra care for EV charging, outbuildings, outdoor equipment and situations involving extraneous-conductive-parts. Avoid blanket always/never PME statements; assess the installation.</p>
+        </div>
+        <div class="note review">
+          <span class="note-title">Needs competent review</span>
+          <p>Main protective bonding requirements depend on whether service pipework or structural parts are extraneous-conductive-parts, the supply arrangement and current BS 7671. Do not size or omit bonding from memory.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="inspection-testing" data-topic data-keywords="inspection testing certification initial verification dead tests live tests continuity protective conductors ring final insulation resistance polarity earth fault loop impedance prospective fault current RCD RCBO functional checks EIC MEIWC EICR C1 C2 C3 FI LIM">
+        <div class="section-header">
+          <span class="section-label">Inspection and testing</span>
+          <h2>Inspection, testing and certification</h2>
+        </div>
+        <p>Inspection and testing verifies that an installation or alteration is safe and meets required design and installation criteria. This section is for revision of what tests are for and what results relate to. It is not a substitute for Guidance Note 3, current BS 7671, calibrated instruments, supervision or competence.</p>
+        <div class="grid three">
+          <article class="card"><h3>Initial verification</h3><p>Includes inspection before testing, dead tests before live tests where applicable, live tests only by competent persons using suitable procedures, and documentation.</p></article>
+          <article class="card"><h3>Continuity of protective conductors</h3><p>Verifies CPC/bonding continuity, supports fault path verification and relates to R1+R2 and bonding checks.</p></article>
+          <article class="card"><h3>Ring final continuity</h3><p>Verifies continuity of line, neutral and CPC around a ring. It can identify open conductors, cross connections, figure-of-eight errors and loose terminations.</p></article>
+          <article class="card"><h3>Insulation resistance</h3><p>Checks insulation condition between conductors. It can reveal damage, moisture or connected-load/equipment issues. Sensitive equipment may need consideration.</p></article>
+          <article class="card"><h3>Polarity</h3><p>Verifies switching/protective devices are in the line conductor, socket polarity and correct conductor arrangement.</p></article>
+          <article class="card"><h3>Earth fault loop impedance</h3><p>Relates to loop impedance, fault path and protective device operation. It is affected by supply, length, conductor resistance, temperature and connections.</p></article>
+          <article class="card"><h3>Prospective fault current</h3><p>Helps confirm protective devices/equipment have adequate breaking capacity at origin and distribution points.</p></article>
+          <article class="card"><h3>RCD/RCBO checks</h3><p>Confirms residual current device operation under test conditions. The user test button is not formal verification.</p></article>
+          <article class="card"><h3>Functional checks</h3><p>Confirms operation of switches, controls, interlocks, indicators, alarms and equipment.</p></article>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Document</th><th>Used for</th><th>Revision notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>EIC</td><td>New installation, rewire, new circuits or significant installation work.</td><td>Records design, construction, inspection and testing responsibility.</td></tr>
+              <tr><td>MEIWC</td><td>Certain minor additions or alterations that do not include a new circuit.</td><td>Not for every job; check scope.</td></tr>
+              <tr><td>EICR</td><td>Condition report for an existing installation.</td><td>Records observations, codes and overall assessment; not a certificate for new work.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Code</th><th>Meaning</th><th>Revision note</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>C1</td><td>Danger present.</td><td>Immediate action required.</td></tr>
+              <tr><td>C2</td><td>Potentially dangerous.</td><td>Urgent remedial action required.</td></tr>
+              <tr><td>C3</td><td>Improvement recommended.</td><td>Not normally unsatisfactory by itself.</td></tr>
+              <tr><td>FI</td><td>Further investigation required.</td><td>Needs investigation without delay.</td></tr>
+              <tr><td>LIM</td><td>Limitation.</td><td>Agreed limitation; must not hide accessible defects.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note warning">
+          <span class="note-title">Judgement required</span>
+          <p>Coding requires judgement, current guidance, inspection competence and context. Do not code from memory or from this app alone.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="bathrooms-special-locations" data-topic data-keywords="bathrooms special locations shower rooms zones IP ratings SELV electric shower towel rails underfloor heating extractor fans shaver supplies supplementary bonding RCD RCBO Section 701">
+        <div class="section-header">
+          <span class="section-label">Special locations/systems</span>
+          <h2>Bathrooms and special locations</h2>
+        </div>
+        <p>Bathrooms and shower rooms have increased electric shock risk because of water, reduced body resistance and contact with conductive parts. They require special attention to zones, IP ratings, equipment suitability, RCD/RCBO protection, bonding considerations, isolation, manufacturer instructions and inspection/testing.</p>
+        <ul class="list-grid">
+          <li>zones concept</li>
+          <li>IP rating concept</li>
+          <li>equipment suitability</li>
+          <li>SELV where relevant</li>
+          <li>electric shower risks</li>
+          <li>towel rails and underfloor heating</li>
+          <li>extractor fans</li>
+          <li>shaver supplies</li>
+          <li>supplementary bonding considerations</li>
+          <li>RCD/RCBO additional protection</li>
           <li>manufacturer instructions</li>
-          <li>NIE Networks requirements</li>
-          <li>insurance or mortgage requirements</li>
-          <li>local council Building Control requirements for the wider project</li>
         </ul>
-        <p>If the work is part of a new build, extension, conversion, major renovation, HMO, commercial premises, rented property, EV charger installation, or other controlled project, confirm the requirements with a qualified electrician and the relevant authority before work starts.</p>
-        <div class="notice info"><div class="notice-title">Technical Booklet P correction</div><p>Do not describe NI Technical Booklet P as electrical safety guidance. Technical Booklet P in Northern Ireland relates to sanitary appliances, unvented hot water storage systems and reducing the risk of scalding.</p></div>
-        <div class="notice ni"><div class="notice-title">BS 7671 wording</div><p>Electrical work should be designed, installed, inspected and tested to the current edition of BS 7671 applicable at the time of the work.</p><p>BS 7671 is updated over time. As of 2026, BS 7671:2018+A4:2026 has been published, with transition arrangements from previous amendments. Before publishing technical content or carrying out work, confirm the current edition and amendment using the latest IET/BSI information.</p></div>
-        <div class="notice info"><div class="notice-title">Commercial, industrial and workplace electrical systems</div><p>Commercial, industrial and workplace electrical systems may fall under workplace health and safety duties, including the Electricity at Work Regulations (Northern Ireland). HSENI guidance states that electrical systems should be selected, erected and tested in accordance with appropriate standards such as BS 7671 for installations up to 1000 V, and that only competent persons should carry out work on electrical systems. Isolation and testing should take place before work starts.</p></div>
-        <h3>Official sources used for this rewrite</h3>
-        <div class="source-links">
-          <a href="https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/ensure-you-are-up-to-date-with-bs-7671/">IET BS 7671 current edition and amendment information</a>
-          <a href="https://www.electricalsafetyfirst.org.uk/find-an-electrician/building-regulations/northern-ireland/">Electrical Safety First - Building Regulations in Northern Ireland</a>
-          <a href="https://www.finance-ni.gov.uk/publications/technical-booklet-p">Department of Finance NI - Technical Booklet P</a>
-          <a href="https://www.communities-ni.gov.uk/articles/electrical-safety-standards-private-tenancies-regulations-northern-ireland-2024">Department for Communities NI - Electrical Safety Standards for Private Tenancies</a>
-          <a href="https://www.communities-ni.gov.uk/articles/smoke-heat-and-carbon-monoxide-alarms-private-tenancies-regulations-northern-ireland-2024-guidance-notes">Department for Communities NI - Smoke, Heat and Carbon Monoxide Alarm Guidance</a>
-          <a href="https://www.hseni.gov.uk/articles/electrical-safety">HSENI electrical safety guidance</a>
-          <a href="https://www.consumercouncil.org.uk/consumers/help-consumers/travel-and-transport/electric-vehicles">Consumer Council NI - electric vehicles</a>
-          <a href="https://www.nienetworks.co.uk/connections/low-carbon-technologies">NIE Networks - low carbon technologies</a>
+        <div class="note review">
+          <span class="note-title">Needs competent review</span>
+          <p>Do not include bathroom zone dimensions or diagrams unless manually checked against current BS 7671 Section 701. If included later, mark as conceptual and review-required.</p>
         </div>
-        <div class="review-note"><div class="review-title">Manual confirmation required</div><p>All references to BS 7671, Building Control, private tenancy duties and network requirements must be checked before publication and whenever the site is updated.</p></div>
       </section>
 
-      <section class="section" id="about" aria-labelledby="about-title">
-        <p class="section-kicker">About</p>
-        <h2 id="about-title">About this website</h2>
-        <p>This website provides general customer information about domestic electrical work and electrical safety duties in Northern Ireland. It is intended to help customers ask better questions, understand common project stages and recognise when competent electrical assessment is needed.</p>
-        <div class="review-note"><div class="review-title">Business details to add</div><p>Business details, qualifications and insurance information to be added before publication. Do not publish invented memberships, service areas, guarantees, reviews, company history or accreditations.</p></div>
+      <section class="topic-section" id="kitchens-high-load" data-topic data-keywords="kitchens utility high load equipment cooker hob oven shower washing machine dryer dishwasher boiler controls extraction under cabinet lighting boiling water taps dedicated circuits isolation accessibility">
+        <div class="section-header">
+          <span class="section-label">Circuits</span>
+          <h2>Kitchens and high-load equipment</h2>
+        </div>
+        <p>Kitchens and utility areas often include multiple fixed or high-load appliances. Circuit design needs attention to load, diversity, appliance instructions, isolation, cable route, thermal effects, RCD/RCBO protection, socket positions, water/heat, accessibility and future use.</p>
+        <ul class="list-grid">
+          <li>cooker/hob/oven loads</li>
+          <li>washing machine/dryer/dishwasher loads</li>
+          <li>boiler/controls</li>
+          <li>extraction</li>
+          <li>under-cabinet lighting</li>
+          <li>boiling-water taps</li>
+          <li>dedicated circuits vs shared circuits</li>
+          <li>isolation/accessibility</li>
+          <li>manufacturer instructions</li>
+        </ul>
+        <div class="note warning">
+          <span class="note-title">Design-dependent</span>
+          <p>Do not provide fixed cooker/shower cable sizes or protective device ratings from this reference.</p>
+        </div>
       </section>
 
-      <section class="section" id="contact" aria-labelledby="contact-title">
-        <p class="section-kicker">Contact</p>
-        <h2 id="contact-title">Request a quote</h2>
+      <section class="topic-section" id="outdoor-outbuildings" data-topic data-keywords="outdoor supplies outbuildings SWA buried routes IP ratings glands earthing continuity detached garage shed PME TT extraneous conductive parts outdoor sockets garden lighting workshops">
+        <div class="section-header">
+          <span class="section-label">Special locations/systems</span>
+          <h2>Outdoor supplies and outbuildings</h2>
+        </div>
+        <p>Outdoor electrical work needs attention to mechanical protection, environmental conditions, water ingress, corrosion, buried routes, RCD/RCBO protection, earthing and bonding, extraneous-conductive-parts and future loading.</p>
+        <ul class="list-grid">
+          <li>SWA concept</li>
+          <li>buried route considerations</li>
+          <li>IP ratings</li>
+          <li>glands/earthing continuity concept</li>
+          <li>detached garage/shed supplies</li>
+          <li>TT vs PME design dependency</li>
+          <li>extraneous-conductive-parts</li>
+          <li>outdoor sockets</li>
+          <li>garden lighting</li>
+          <li>workshops</li>
+        </ul>
+        <div class="note warning">
+          <span class="note-title">No blanket rules</span>
+          <p>Do not use blanket rules about TT or PME for every outbuilding. The correct arrangement is design-dependent. Do not include buried depth rules as fixed public instructions or SWA gland step-by-step instructions.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="ev-charging" data-topic data-keywords="EV charging charge point Mode 3 open PEN PME NIE Networks notification load assessment maximum demand RCD type charger integrated protection manufacturer instructions certification testing">
+        <div class="section-header">
+          <span class="section-label">Special locations/systems</span>
+          <h2>EV charging revision notes</h2>
+        </div>
+        <p>EV chargers introduce high continuous load and specific earthing/open-PEN considerations. Installation requires assessment of maximum demand, supply capacity, earthing arrangement, open-PEN/PME protection, RCD requirements, cable route, manufacturer instructions and network requirements.</p>
+        <p>In Northern Ireland, NIE Networks must be notified of an EV charge point installation. The installer normally provides capacity and testing information.</p>
+        <div class="grid three">
+          <article class="card"><h3>Technical recap</h3><ul><li>Mode 3 charging concept</li><li>dedicated circuit concept</li><li>load assessment</li><li>maximum demand</li><li>PME/open-PEN risk</li></ul></article>
+          <article class="card"><h3>Protection recap</h3><ul><li>charger-integrated protection</li><li>RCD type considerations</li><li>PEN fault protection concept</li><li>manufacturer instructions</li><li>certification/testing</li></ul></article>
+          <article class="card"><h3>NI network recap</h3><ul><li>NIE Networks notification</li><li>capacity information</li><li>testing information</li><li>current network process</li></ul></article>
+        </div>
+        <div class="concept-visual">
+          <h3>EV assessment flow</h3>
+          <p>Simplified revision concept - not installation instructions.</p>
+          <div class="visual-row">
+            <div class="visual-step"><span>1</span>Load and supply assessment</div>
+            <div class="visual-step"><span>2</span>Earthing and open-PEN considerations</div>
+            <div class="visual-step"><span>3</span>Protection, route and manufacturer data</div>
+            <div class="visual-step"><span>4</span>NIE Networks notification and documentation</div>
+          </div>
+        </div>
+        <div class="note warning">
+          <span class="note-title">Avoid absolutes</span>
+          <p>Avoid blanket claims about earth electrodes, PME, fixed cable sizes, fixed protective device ratings or grants unless current official sources are checked.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="alarms" data-topic data-keywords="smoke heat carbon monoxide alarms private tenancies Northern Ireland September 2024 December 2024 interlinked hardwired qualified electrician living room hallway kitchen flue fixed combustion appliance">
+        <div class="section-header">
+          <span class="section-label">Special locations/systems</span>
+          <h2>Smoke, heat and carbon monoxide alarms</h2>
+        </div>
+        <p>Alarm requirements depend on property type, tenancy status, Building Regulations context, manufacturer instructions and current guidance. Northern Ireland private rented properties have specific alarm duties.</p>
+        <div class="note safe">
+          <span class="note-title">NI private tenancy recap</span>
+          <p>Private tenancy alarm requirements apply to new private tenancies granted on or after 1 September 2024. Existing tenancies granted before that date had to comply by 1 December 2024.</p>
+        </div>
+        <ul class="list-grid">
+          <li>smoke alarm in the room most frequently used for general daytime living, normally living room/lounge</li>
+          <li>smoke alarm in every circulation space such as halls, stairs, landings and corridors</li>
+          <li>heat alarm in every kitchen</li>
+          <li>carbon monoxide alarm in any room or circulation space containing a flue, including a chimney of an open fire not put beyond use, and/or a fixed combustion appliance other than a gas cooker or gas oven</li>
+        </ul>
+        <p>Smoke and heat alarms must be interlinked in private rented properties. Hardwired alarms must be fitted by a qualified electrician.</p>
+        <div class="note review">
+          <span class="note-title">Needs competent review</span>
+          <p>Check current Department for Communities guidance before relying on alarm requirements.</p>
+        </div>
+      </section>
+
+      <section class="topic-section" id="private-tenancy-eicr" data-topic data-keywords="landlord private tenancy electrical safety checks Northern Ireland EICR qualified person five years April 2025 December 2025 fixed electrical parts report duties remedial work further investigation">
+        <div class="section-header">
+          <span class="section-label">Northern Ireland compliance</span>
+          <h2>NI private tenancy electrical safety checks</h2>
+        </div>
+        <p>Private landlords in Northern Ireland must have fixed electrical installations inspected and tested by a qualified person at least every 5 years, or sooner if the report requires it.</p>
         <div class="grid two">
           <article class="card">
-            <h3>Contact details to be added</h3>
-            <p><strong>Phone:</strong> Contact details to be added</p>
-            <p><strong>Email:</strong> Contact details to be added</p>
-            <p><strong>Service area:</strong> Service area to be confirmed</p>
-            <p class="form-help">These placeholders must be replaced with genuine business details before publication.</p>
+            <h3>Compliance dates</h3>
+            <p>New private tenancies granted on or after 1 April 2025 must comply from that date. Existing tenancies granted before 1 April 2025 must comply by 1 December 2025.</p>
           </article>
           <article class="card">
-            <h3>Before sending an enquiry</h3>
-            <p>Include the property type, approximate location, the issue or work needed, any urgency, and whether you have existing certificates or reports. Do not open covers or expose wiring to take photos.</p>
+            <h3>Inspection scope</h3>
+            <p>Fixed electrical parts include wiring, socket-outlets, light fittings, consumer units and permanently connected equipment such as showers and extractor fans. Tenant-owned plug-in appliances are not normally part of the fixed installation inspection.</p>
+          </article>
+          <article class="card">
+            <h3>Report duties</h3>
+            <p>Landlords must obtain an electrical safety report, provide it to tenants/new tenants/prospective tenants/councils where required, keep a copy, and arrange required remedial work or further investigation within the required period.</p>
+          </article>
+          <article class="card">
+            <h3>Revision point</h3>
+            <p>Private-tenancy rules are legal/current-state content. Treat dates, report duties and scope as review-required.</p>
           </article>
         </div>
-        <form action="#" method="post" aria-describedby="form-note" onsubmit="return false;">
-          <p class="notice info" id="form-note"><span class="notice-title">Form placeholder</span><br>This form is non-submitting until genuine contact handling and privacy wording are configured.</p>
-          <div class="form-grid">
-            <label for="name">Name
-              <input id="name" name="name" autocomplete="name" type="text">
-            </label>
-            <label for="email">Email
-              <input id="email" name="email" autocomplete="email" type="email">
-            </label>
-            <label for="property-type">Property type
-              <select id="property-type" name="property-type">
-                <option value="">Select an option</option>
-                <option>Owner-occupied home</option>
-                <option>Private rented property</option>
-                <option>Commercial or workplace property</option>
-                <option>Other or not sure</option>
-              </select>
-            </label>
-            <label for="urgency">Urgency
-              <select id="urgency" name="urgency">
-                <option value="">Select an option</option>
-                <option>Planning ahead</option>
-                <option>Quote requested</option>
-                <option>Safety concern</option>
-                <option>Loss of power or urgent fault</option>
-              </select>
-            </label>
-          </div>
-          <label for="location">Location or town
-            <input id="location" name="location" autocomplete="address-level2" type="text">
-          </label>
-          <label for="message">Message
-            <textarea id="message" name="message"></textarea>
-          </label>
-          <button class="button button-primary" type="submit" aria-disabled="true">Contact details to be added</button>
-        </form>
+        <div class="note review">
+          <span class="note-title">Needs competent review</span>
+          <p>Check current Department for Communities guidance before relying on dates or duties.</p>
+        </div>
       </section>
 
-      <section class="section" id="legal" aria-labelledby="legal-title">
-        <p class="section-kicker">Legal / disclaimer</p>
-        <h2 id="legal-title">Legal and safety disclaimer</h2>
-        <p>This website provides general customer information only and does not replace assessment by a competent electrician. Electrical standards and legal duties change over time. Always confirm requirements for your property and project before work starts.</p>
-        <p>No content on this site should be used as instructions to design, install, alter, inspect, test, certify or repair an electrical installation. Electrical work can cause electric shock, fire, injury, death and serious property damage if carried out incorrectly.</p>
+      <section class="topic-section" id="diagram-policy" data-topic data-keywords="diagram visual policy conceptual flow cards comparison tables formula cards device role fault path testing sequence EV assessment outbuilding decision no terminal diagrams no consumer unit internal wiring">
+        <div class="section-header">
+          <span class="section-label">Revision tools</span>
+          <h2>Diagram and visual policy</h2>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Allowed visuals</h3>
+            <ul>
+              <li>conceptual flow cards</li>
+              <li>comparison tables</li>
+              <li>formula cards</li>
+              <li>device role diagrams without terminals</li>
+              <li>protection concept blocks</li>
+              <li>fault path concept diagrams without exact wiring instructions</li>
+              <li>testing sequence overview without instrument lead placement</li>
+              <li>EV assessment and outbuilding design-decision flows</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Not allowed</h3>
+            <ul>
+              <li>terminal-level wiring diagrams</li>
+              <li>consumer unit internal wiring</li>
+              <li>meter-tail diagrams</li>
+              <li>socket/switch terminal diagrams</li>
+              <li>shower/cooker wiring diagrams</li>
+              <li>exact cable sizing diagrams</li>
+              <li>buried cable installation instructions</li>
+              <li>detailed test lead connection diagrams</li>
+              <li>bathroom zone diagrams unless manually checked against current BS 7671</li>
+            </ul>
+          </article>
+        </div>
+        <div class="note warning">
+          <span class="note-title">Visual disclaimer</span>
+          <p>Every concept visual must include: "Simplified revision concept - not installation instructions."</p>
+        </div>
       </section>
 
-      <section class="section" id="privacy" aria-labelledby="privacy-title">
-        <p class="section-kicker">Privacy policy</p>
-        <h2 id="privacy-title">Privacy and cookies</h2>
-        <p>No analytics, advertising cookies or submitting contact form backend are configured in this static page at the time of this rewrite.</p>
-        <p>If a live enquiry form, analytics, embedded maps, call tracking, advertising pixels or non-essential cookies are added later, a proper privacy policy and cookie policy must be added before publication.</p>
+      <section class="topic-section" id="manual-review" data-topic data-keywords="manual review required qualified electrician BS 7671 official Northern Ireland guidance employer procedures competent electrical judgement checklist">
+        <div class="section-header">
+          <span class="section-label">Revision tools</span>
+          <h2>Manual review required</h2>
+        </div>
+        <p>These sections must be checked against the current edition of BS 7671, official Northern Ireland guidance, employer procedures and competent electrical judgement before being relied upon.</p>
+        <ul class="list-grid">
+          <li>BS 7671 edition/amendment note</li>
+          <li>safe isolation wording</li>
+          <li>inspection and testing wording</li>
+          <li>EICR coding notes</li>
+          <li>consumer unit/protective device notes</li>
+          <li>SPDs and AFDDs</li>
+          <li>bathroom/special-location notes</li>
+          <li>EV charging/open-PEN/PME notes</li>
+          <li>outbuilding earthing/bonding notes</li>
+          <li>NI private tenancy electrical safety dates/duties</li>
+          <li>NI smoke/heat/CO alarm dates/duties</li>
+          <li>Building Control/NI compliance notes</li>
+          <li>all future diagrams</li>
+        </ul>
+      </section>
+
+      <section class="topic-section" id="source-library" data-topic data-keywords="source library official links IET Electrical Safety First Department of Finance Department for Communities HSENI Consumer Council NIE Networks review before relying">
+        <div class="section-header">
+          <span class="section-label">Revision tools</span>
+          <h2>Source library</h2>
+        </div>
+        <p>Use these official/current source links as review anchors. Each linked topic should be checked before relying on related app content.</p>
+        <div class="source-grid">
+          <article class="source-card">
+            <h3>IET BS 7671 current edition/amendment</h3>
+            <p>Used for current-edition and amendment status.</p>
+            <a href="https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/ensure-you-are-up-to-date-with-bs-7671/">Open IET source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+          <article class="source-card">
+            <h3>Electrical Safety First NI Building Regulations</h3>
+            <p>Used for Northern Ireland domestic electrical Building Regulations context.</p>
+            <a href="https://www.electricalsafetyfirst.org.uk/find-an-electrician/building-regulations/northern-ireland/">Open Electrical Safety First source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+          <article class="source-card">
+            <h3>Department of Finance NI Technical Booklet P</h3>
+            <p>Used for Technical Booklet P correction.</p>
+            <a href="https://www.finance-ni.gov.uk/publications/technical-booklet-p">Open Department of Finance source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+          <article class="source-card">
+            <h3>DfC NI private tenancy electrical safety</h3>
+            <p>Used for private-tenancy electrical safety dates, scope and duties.</p>
+            <a href="https://www.communities-ni.gov.uk/articles/electrical-safety-standards-private-tenancies-regulations-northern-ireland-2024">Open DfC source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+          <article class="source-card">
+            <h3>DfC NI smoke, heat and CO alarms</h3>
+            <p>Used for private-tenancy alarm dates and minimum alarm recap.</p>
+            <a href="https://www.communities-ni.gov.uk/articles/smoke-heat-and-carbon-monoxide-alarms-private-tenancies-regulations-northern-ireland-2024-guidance-notes">Open DfC alarm source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+          <article class="source-card">
+            <h3>HSENI electrical safety</h3>
+            <p>Used for workplace competence, isolation/testing and BS 7671 context.</p>
+            <a href="https://www.hseni.gov.uk/articles/electrical-safety">Open HSENI source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+          <article class="source-card">
+            <h3>Consumer Council NI EV charging</h3>
+            <p>Used for EV charging and NIE Networks notification context.</p>
+            <a href="https://www.consumercouncil.org.uk/consumers/help-consumers/travel-and-transport/electric-vehicles">Open Consumer Council source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+          <article class="source-card">
+            <h3>NIE Networks EVs / Heat Pumps</h3>
+            <p>Used for low carbon technologies application and notification process checks.</p>
+            <a href="https://www.nienetworks.co.uk/connections/low-carbon-technologies">Open NIE Networks source</a>
+            <span class="badge review">Review before relying on this section</span>
+          </article>
+        </div>
       </section>
     </main>
   </div>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>Electrical Safety &amp; Services in Northern Ireland - customer information only.</p>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="#services">Services</a>
-        <a href="#compliance">NI compliance</a>
-        <a href="#contact">Contact</a>
-        <a href="#legal">Legal</a>
-        <a href="#privacy">Privacy</a>
-      </nav>
-    </div>
+  <footer class="app-footer">
+    <p>NI Electrical Revision Reference. Draft competent-person revision resource. Not installation instructions.</p>
   </footer>
 
   <script>
-    const navToggle = document.querySelector(".nav-toggle");
-    const topNav = document.querySelector("#top-nav");
+    const body = document.body;
+    const menuButton = document.querySelector(".menu-button");
+    const sidebar = document.querySelector("#sidebar");
+    const drawerBackdrop = document.querySelector(".drawer-backdrop");
+    const searchInput = document.querySelector("#topic-search");
+    const clearSearch = document.querySelector(".clear-search");
+    const matchCount = document.querySelector(".match-count");
+    const noResults = document.querySelector("#no-results");
+    const sections = Array.from(document.querySelectorAll("[data-topic]"));
+    const navLinks = Array.from(document.querySelectorAll(".sidebar a[href^='#']"));
+    const navGroups = Array.from(document.querySelectorAll(".nav-group"));
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    navToggle?.addEventListener("click", () => {
-      const expanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!expanded));
-      topNav.classList.toggle("open", !expanded);
+    function setDrawer(open) {
+      body.classList.toggle("nav-open", open);
+      menuButton?.setAttribute("aria-expanded", String(open));
+    }
+
+    menuButton?.addEventListener("click", () => {
+      setDrawer(!body.classList.contains("nav-open"));
     });
 
-    topNav?.addEventListener("click", (event) => {
-      if (event.target instanceof HTMLAnchorElement) {
-        navToggle?.setAttribute("aria-expanded", "false");
-        topNav.classList.remove("open");
+    drawerBackdrop?.addEventListener("click", () => setDrawer(false));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setDrawer(false);
       }
     });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        setDrawer(false);
+        if (!prefersReducedMotion) {
+          document.documentElement.style.scrollBehavior = "smooth";
+        }
+      });
+    });
+
+    function sectionText(section) {
+      return `${section.dataset.keywords || ""} ${section.innerText || ""}`.toLowerCase();
+    }
+
+    function applySearch() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+      const visibleIds = new Set();
+
+      sections.forEach((section) => {
+        const isVisible = !query || sectionText(section).includes(query);
+        section.hidden = !isVisible;
+        if (isVisible) {
+          visibleCount += 1;
+          visibleIds.add(section.id);
+        }
+      });
+
+      navLinks.forEach((link) => {
+        const id = link.getAttribute("href").slice(1);
+        link.hidden = query ? !visibleIds.has(id) : false;
+      });
+
+      navGroups.forEach((group) => {
+        const hasVisibleLink = Array.from(group.querySelectorAll("a")).some((link) => !link.hidden);
+        group.hidden = !hasVisibleLink;
+      });
+
+      clearSearch.hidden = !query;
+      noResults.classList.toggle("visible", visibleCount === 0);
+      matchCount.textContent = query
+        ? `${visibleCount} matching topic${visibleCount === 1 ? "" : "s"}`
+        : "Showing all topics";
+    }
+
+    searchInput?.addEventListener("input", applySearch);
+
+    clearSearch?.addEventListener("click", () => {
+      searchInput.value = "";
+      applySearch();
+      searchInput.focus();
+    });
+
+    function setActive(id) {
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting && !entry.target.hidden)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible?.target?.id) {
+        setActive(visible.target.id);
+      }
+    }, {
+      root: null,
+      rootMargin: "-18% 0px -68% 0px",
+      threshold: [0.08, 0.2, 0.45]
+    });
+
+    sections.forEach((section) => observer.observe(section));
+
+    window.addEventListener("hashchange", () => {
+      if (location.hash.length > 1) {
+        setActive(location.hash.slice(1));
+      }
+    });
+
+    applySearch();
   </script>
 </body>
 </html>

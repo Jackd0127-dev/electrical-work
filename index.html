@@ -118,6 +118,47 @@ header h1{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-0.
 .use-list li{font-size:12px;color:#444;padding:4px 0 4px 14px;position:relative;line-height:1.5;}
 .use-list li::before{content:'>';position:absolute;left:0;color:var(--amber);font-family:'DM Mono',monospace;}
 .formula{font-family:'DM Mono',monospace;background:var(--ink);color:var(--paper);padding:9px 12px;border-radius:5px;margin:8px 0;font-size:12px;overflow-x:auto;}
+.eicr-intro{background:var(--panel);border:1px solid var(--rule);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:15px 17px;margin-bottom:16px;}
+.eicr-meta{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 0;}
+.eicr-accordion{background:var(--panel);border:1px solid var(--rule);border-radius:8px;margin-bottom:10px;overflow:hidden;}
+.eicr-accordion.open{border-color:rgba(212,130,10,0.55);box-shadow:0 3px 12px rgba(0,0,0,.04);}
+.eicr-acc-header{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--panel);border:0;padding:12px 14px;cursor:pointer;text-align:left;}
+.eicr-acc-header:hover{background:rgba(237,232,223,0.55);}
+.eicr-acc-title{display:block;font-family:'DM Serif Display',serif;font-size:18px;line-height:1.15;}
+.eicr-acc-kicker{display:block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--dead);text-transform:uppercase;margin-bottom:3px;}
+.eicr-acc-arrow{font-family:'DM Mono',monospace;font-size:11px;color:var(--amber);transition:transform .18s;}
+.eicr-accordion.open .eicr-acc-arrow{transform:rotate(90deg);}
+.eicr-panel{display:none;border-top:1px solid var(--cream);padding:14px;}
+.eicr-accordion.open .eicr-panel{display:block;}
+.eicr-panel p{font-size:13px;line-height:1.7;color:#3f3a35;margin-bottom:10px;}
+.eicr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:10px 0 14px;}
+.eicr-card{background:var(--panel);border:1px solid var(--rule);border-radius:7px;padding:11px 12px;font-size:12px;line-height:1.55;color:#444;}
+.eicr-card h3,.eicr-card h4{font-size:13px;line-height:1.2;margin-bottom:5px;color:var(--ink);font-weight:600;}
+.eicr-card strong{color:var(--ink);font-weight:600;}
+.eicr-card ul{padding-left:15px;margin:5px 0 0;}
+.eicr-card li{margin-bottom:3px;}
+.eicr-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px;border:1px solid var(--rule);border-radius:7px;background:var(--panel);}
+.eicr-table-wrap .ref-table{margin:0;min-width:720px;}
+.eicr-filter{width:100%;max-width:430px;background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:8px 10px;margin:4px 0 12px;font-size:13px;}
+.eicr-diagram-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0 16px;}
+.eicr-diagram{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:12px;margin:0;}
+.eicr-diagram svg{display:block;width:100%;height:auto;min-height:118px;}
+.eicr-diagram figcaption{font-size:11px;line-height:1.5;color:#555;margin-top:7px;}
+.svg-box{fill:#fffaf2;stroke:#8b8378;stroke-width:1.4;}
+.svg-accent{fill:#f5c842;stroke:#d4820a;stroke-width:1.3;}
+.svg-green{fill:#e7f4ec;stroke:#009a44;stroke-width:1.3;}
+.svg-red{fill:#fae8e6;stroke:#c0392b;stroke-width:1.3;}
+.svg-line{stroke:#1a1a1a;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.svg-earth{stroke:#087f45;stroke-width:1.8;fill:none;stroke-linecap:round;}
+.svg-note{font-family:'DM Mono',monospace;font-size:9px;fill:#555;}
+.eicr-checklist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:10px;}
+.print-checklist{background:var(--panel);border:1px solid var(--rule);border-radius:7px;padding:11px 12px;break-inside:avoid;}
+.print-checklist h3{font-size:13px;margin-bottom:6px;}
+.print-checklist ul{list-style:none;}
+.print-checklist li{font-size:12px;line-height:1.45;padding:4px 0 4px 20px;position:relative;border-bottom:1px solid var(--cream);}
+.print-checklist li::before{content:'□';position:absolute;left:0;color:var(--dead);}
+.print-checklist li:last-child{border-bottom:0;}
+.eicr-small{font-size:11px;line-height:1.55;color:#5a5249;}
 .info-panel{width:275px;flex-shrink:0;background:var(--panel);border-left:1px solid var(--rule);padding:18px;overflow-y:auto;}
 .info-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:50%;gap:10px;color:var(--dead);text-align:center;}
 .info-empty-icon{font-size:26px;opacity:.3;}
@@ -203,6 +244,8 @@ header h1{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-0.
   .section-title{font-size:18px;}
   .section-sub{font-size:12px;}
   .ref-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;}
+  .eicr-table-wrap .ref-table{display:table;white-space:normal;}
+  .eicr-acc-title{font-size:16px;}
   .concept-map{grid-template-columns:1fr 1fr;}
   .concept-rail{grid-template-columns:1fr;}
   .regs-modal{border-radius:0;max-height:90vh;overflow-y:auto;}
@@ -221,6 +264,19 @@ header h1{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-0.
   .concept-map{grid-template-columns:1fr;}
   .content-area{padding:14px 12px 90px;}
   .section-title{font-size:17px;}
+}
+@media print{
+  body{height:auto;overflow:visible;background:#fff;color:#000;}
+  header,.sidebar,.sidebar-backdrop,.info-panel,.mobile-bottombar,.regs-overlay{display:none !important;}
+  .app,.main,.content-area{display:block;height:auto;overflow:visible;padding:0;}
+  .view{display:none !important;}
+  #view-eicr-testing{display:block !important;}
+  .eicr-panel{display:block !important;}
+  .eicr-accordion{break-inside:avoid;border:1px solid #999;}
+  .eicr-acc-header{padding:8px 0;}
+  .eicr-acc-arrow{display:none;}
+  .eicr-table-wrap{overflow:visible;}
+  .eicr-diagram,.print-checklist{break-inside:avoid;}
 }
 </style>
 </head>
@@ -279,6 +335,33 @@ header h1{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-0.
     </div>
   </div>
 
+  <div class="cat-group" id="cat-eicr">
+    <button class="cat-header" type="button" onclick="toggleCat('eicr')" aria-expanded="false" aria-controls="cat-eicr-body">EICR Testing <span class="cat-arrow">></span></button>
+    <div class="cat-body" id="cat-eicr-body">
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-overview" data-keywords="EICR overview condition report satisfactory unsatisfactory old installations"><span class="nav-dot"></span>EICR Overview</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-legal-standards" data-keywords="Northern Ireland landlord BS 7671 GN3 BPG4 standards law"><span class="nav-dot"></span>Legal and Standards Context</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-workflow" data-keywords="workflow process start finish report remedial retest"><span class="nav-dot"></span>EICR Workflow From Start to Finish</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-before-site" data-keywords="before arriving site client questions access PV battery EV medical equipment"><span class="nav-dot"></span>Before Arriving On Site</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-tools" data-keywords="tools test equipment MFT proving unit GS38 lock off calibration"><span class="nav-dot"></span>Tools and Test Equipment</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-safe-isolation" data-keywords="safe isolation prove dead lock off borrowed neutral PV UPS"><span class="nav-dot"></span>Safe Isolation</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-visual-inspection" data-keywords="visual inspection intake supply consumer unit bonding RCD SPD AFDD"><span class="nav-dot"></span>Initial Visual Inspection</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-supply-earthing" data-keywords="supply earthing TN-S TN-C-S PME TT IT Ze Zs bonding"><span class="nav-dot"></span>Understanding Supply Types and Earthing</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-domestic-circuits" data-keywords="domestic circuits ring radial lighting cooker shower immersion outbuilding EV PV"><span class="nav-dot"></span>Domestic Circuits To Inspect and Test</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-dead-testing" data-keywords="dead testing continuity R1 R2 insulation resistance polarity ring figure of eight"><span class="nav-dot"></span>Dead Testing Guide</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-live-testing" data-keywords="live testing Ze Zs PFC PEFC PSCC RCD voltage polarity phase sequence"><span class="nav-dot"></span>Live Testing Guide</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-coding" data-keywords="coding C1 C2 C3 FI LIM satisfactory unsatisfactory observation"><span class="nav-dot"></span>EICR Coding System</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-common-observations" data-keywords="common observations defects RCD bonding CPC polarity ring Zs SPD AFDD filter"><span class="nav-dot"></span>Common Domestic EICR Observations</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-walkthrough" data-keywords="walkthrough example house intake consumer unit bathroom outbuilding observations"><span class="nav-dot"></span>Domestic EICR Walkthrough Example</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-report-writing" data-keywords="forms report writing schedule observations extent limitations next inspection"><span class="nav-dot"></span>Forms and Report Writing</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-limitations" data-keywords="limitations agreed operational access loft sealed equipment sensitive equipment"><span class="nav-dot"></span>Limitations</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-special-cases" data-keywords="special cases no CPC old colours rewireable fuses TT EV PV HMO commercial agricultural"><span class="nav-dot"></span>Special Cases</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-apprentice-learning" data-keywords="apprentice trainee supervision glossary quiz mistakes"><span class="nav-dot"></span>Apprentice Learning Section</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-diagrams" data-keywords="diagram library SVG workflow safe isolation earthing testing coding"><span class="nav-dot"></span>Diagram Library</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-checklists" data-keywords="checklists printable pre visit tools isolation visual testing coding report apprentice defects"><span class="nav-dot"></span>Checklists</button>
+      <button class="nav-item" type="button" data-view="eicr-testing" data-eicr-anchor="eicr-sources-review" data-keywords="sources review notes IET GN3 BPG4 DfC HSE GS38 HSENI"><span class="nav-dot"></span>Sources and Review Notes</button>
+    </div>
+  </div>
+
   <div class="cat-group" id="cat-systems">
     <button class="cat-header" type="button" onclick="toggleCat('systems')" aria-expanded="false" aria-controls="cat-systems-body">Special systems <span class="cat-arrow">></span></button>
     <div class="cat-body" id="cat-systems-body">
@@ -312,6 +395,7 @@ header h1{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-0.
       <div class="home-card" onclick="nav('circuits')"><div class="home-card-title">Circuit concepts</div><div class="home-card-sub">Lighting, sockets, rings, radials and high-load circuits.</div><div class="home-card-tag"><span class="tag tag-reg">Circuits</span></div></div>
       <div class="home-card" onclick="nav('cable-design')"><div class="home-card-title">Cable design</div><div class="home-card-sub">Current-carrying capacity, voltage drop, grouping and diversity.</div><div class="home-card-tag"><span class="tag tag-reg">Design</span></div></div>
       <div class="home-card" onclick="nav('inspection-testing')"><div class="home-card-title">Inspection & testing</div><div class="home-card-sub">What tests prove and how documents relate.</div><div class="home-card-tag"><span class="tag tag-info">Testing</span></div></div>
+      <div class="home-card" onclick="nav('eicr-testing','eicr-overview')"><div class="home-card-title">EICR testing</div><div class="home-card-sub">Condition reports, coding, diagrams, checklists and NI landlord context.</div><div class="home-card-tag"><span class="tag tag-warn">New module</span></div></div>
       <div class="home-card" onclick="nav('earthing')"><div class="home-card-title">Earthing & bonding</div><div class="home-card-sub">Supply types, MET, CPC and protective bonding recap.</div><div class="home-card-tag"><span class="tag tag-ni">PME / TT / TN</span></div></div>
       <div class="home-card" onclick="nav('ni-compliance')"><div class="home-card-title">NI compliance</div><div class="home-card-sub">Part P correction, Building Control context and workplace notes.</div><div class="home-card-tag"><span class="tag tag-ni">NI-specific</span></div></div>
       <div class="home-card" onclick="nav('ev')"><div class="home-card-title">EV charging</div><div class="home-card-sub">Open-PEN, PME, load assessment and NIE notification recap.</div><div class="home-card-tag"><span class="tag tag-warn">Review needed</span></div></div>
@@ -540,6 +624,316 @@ header h1{font-family:'DM Serif Display',serif;font-size:19px;letter-spacing:-0.
     </table>
   </section>
 
+  <section class="view" id="view-eicr-testing">
+    <div class="section-title">EICR Testing Reference</div>
+    <div class="section-sub">Dense competent-person reference for Electrical Installation Condition Reports, Northern Ireland tenancy context, coding, inspection, testing and report writing.</div>
+    <div class="section-tags"><span class="tag tag-warn">Competent-person reference</span><span class="tag tag-reg">BS 7671 / GN3 recap</span><span class="tag tag-ni">Northern Ireland</span><span class="tag tag-info">Last reviewed: 31 May 2026</span></div>
+    <div class="eicr-intro">
+      <p><strong>Competent-person reference only.</strong> This section is for electrical learning, revision and professional reference. It is not a substitute for BS 7671, IET Guidance Note 3, manufacturer instructions, risk assessment, safe systems of work, insurance conditions or competent supervision.</p>
+      <p><strong>Apprentice note.</strong> If you are in training, do not carry out EICR work unsupervised unless you are competent and authorised to do so. Use this section to understand the process, terminology, observations and report structure, then verify everything against current standards and supervisor instructions.</p>
+      <p><strong>Regulation note.</strong> Standards, model forms and legal duties can change. Verify current requirements against the applicable version of BS 7671, current IET guidance, Electrical Safety First guidance, current Northern Ireland Department for Communities guidance, manufacturer information and local procedures.</p>
+      <div class="eicr-meta"><span class="tag tag-info">Original summary wording</span><span class="tag tag-warn">No invented values</span><span class="tag tag-reg">Verify current source</span></div>
+    </div>
+
+    <section class="eicr-accordion open" id="eicr-overview">
+      <button class="eicr-acc-header" type="button" id="eicr-overview-button" aria-expanded="true" aria-controls="eicr-overview-panel" onclick="toggleEicrAccordion('eicr-overview')"><span><span class="eicr-acc-kicker">EICR</span><span class="eicr-acc-title">EICR Overview</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-overview-panel" role="region" aria-labelledby="eicr-overview-button">
+        <p>An Electrical Installation Condition Report records the condition of an existing electrical installation within agreed extent and limitations. It is a structured inspection and testing report, not a design certificate for new work and not a quote for remedial work.</p>
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>What it is</h3><p>A report on whether an existing installation is satisfactory for continued service, based on inspection, testing, observations, limitations and competent judgement.</p></div>
+          <div class="eicr-card"><h3>What it is not</h3><p>It is not an Electrical Installation Certificate, not a Minor Works Certificate, not a consumer-unit replacement certificate and not proof that future alterations are safe.</p></div>
+          <div class="eicr-card"><h3>Who carries it out</h3><p>A competent and authorised person with suitable inspection/testing knowledge, experience, equipment, calibration arrangements, insurance and safe systems of work.</p></div>
+          <div class="eicr-card"><h3>Old installations</h3><p>Older work is assessed against current safety expectations, but age alone does not make an installation unsafe. Coding depends on risk, condition and context.</p></div>
+        </div>
+        <div class="eicr-table-wrap">
+          <table class="ref-table">
+            <tr><th>Document</th><th>Purpose</th><th>Typical use</th></tr>
+            <tr><td>EICR</td><td>Condition report for an existing installation.</td><td>Periodic inspection, landlord checks, sale/purchase condition review, workplace maintenance.</td></tr>
+            <tr><td>EIC</td><td>Certificate for new installation work.</td><td>New installation, rewire, new circuit or major alteration requiring design/construction verification.</td></tr>
+            <tr><td>MEIWC</td><td>Certificate for certain minor electrical installation work.</td><td>Limited additions or alterations where no new circuit is installed and the certificate scope is appropriate.</td></tr>
+          </table>
+        </div>
+        <div class="ni-notice"><div class="ni-notice-title">NI private tenancy context</div><div class="ni-notice-body">Private landlords in Northern Ireland must have the hardwired electrical installation inspected and tested at least every 5 years by a qualified person, or sooner if the report requires it. New private tenancies apply from 1 April 2025; existing tenancies granted before then must comply by 1 December 2025.</div></div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-legal-standards">
+      <button class="eicr-acc-header" type="button" id="eicr-legal-standards-button" aria-expanded="false" aria-controls="eicr-legal-standards-panel" onclick="toggleEicrAccordion('eicr-legal-standards')"><span><span class="eicr-acc-kicker">Context</span><span class="eicr-acc-title">Legal and Standards Context</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-legal-standards-panel" role="region" aria-labelledby="eicr-legal-standards-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>Northern Ireland</h3><p>NI does not operate the same domestic Part P notification system used in England and Wales. Other duties can still apply, including private-tenancy, HMO, workplace, fire, building and contractual duties.</p></div>
+          <div class="eicr-card"><h3>BS 7671</h3><p>BS 7671:2018+A4:2026 has been published and is in transition. Confirm which edition/amendment the report is based on before relying on wording or model-form interpretation.</p></div>
+          <div class="eicr-card"><h3>Guidance Note 3</h3><p>GN3 is the main inspection-and-testing guidance book. It is paid material, so this site summarises principles in original wording and points readers to the official publication.</p></div>
+          <div class="eicr-card"><h3>BPG4</h3><p>Electrical Safety First Best Practice Guide 4 is a public practical coding aid for domestic and similar installations. Use the latest public BPG4, verified during implementation as Issue 7.2, and cross-check current forms.</p></div>
+          <div class="eicr-card"><h3>Frequency and reports</h3><p>NI private-tenancy reports are normally required at least every 5 years. Copy, retention, council-request and remedial-work timings should be checked against current DfC guidance.</p></div>
+          <div class="eicr-card"><h3>Guidance not law</h3><p>This section is revision guidance only. It does not replace the standard, GN3, competent-person judgement, scheme guidance, employer procedures or legal advice.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-workflow">
+      <button class="eicr-acc-header" type="button" id="eicr-workflow-button" aria-expanded="false" aria-controls="eicr-workflow-panel" onclick="toggleEicrAccordion('eicr-workflow')"><span><span class="eicr-acc-kicker">Process</span><span class="eicr-acc-title">EICR Workflow From Start to Finish</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-workflow-panel" role="region" aria-labelledby="eicr-workflow-button">
+        <figure class="eicr-diagram" aria-labelledby="eicr-workflow-diagram-title">
+          <svg viewBox="0 0 720 150" role="img"><title id="eicr-workflow-diagram-title">Full EICR workflow concept</title><path class="svg-line" d="M65 75H655"/><g><rect class="svg-accent" x="20" y="42" width="90" height="66" rx="6"/><text class="svg-note" x="37" y="79">Scope</text></g><g><rect class="svg-box" x="142" y="42" width="90" height="66" rx="6"/><text class="svg-note" x="158" y="79">Inspect</text></g><g><rect class="svg-box" x="264" y="42" width="90" height="66" rx="6"/><text class="svg-note" x="285" y="79">Test</text></g><g><rect class="svg-box" x="386" y="42" width="90" height="66" rx="6"/><text class="svg-note" x="407" y="79">Code</text></g><g><rect class="svg-box" x="508" y="42" width="90" height="66" rx="6"/><text class="svg-note" x="527" y="79">Report</text></g><g><rect class="svg-green" x="630" y="42" width="70" height="66" rx="6"/><text class="svg-note" x="646" y="79">Review</text></g></svg>
+          <figcaption>Concept flow: enquiry, previous records, agreed scope, risk assessment, visual inspection, safe isolation, dead tests, live tests where justified, functional checks, coding, report completion and follow-up.</figcaption>
+        </figure>
+        <div class="concept-map" aria-label="EICR workflow stages">
+          <div class="concept-step" data-step="01"><div class="concept-title">Agree</div><div class="concept-copy">Client information, previous reports, extent, limitations, access and power interruption.</div></div>
+          <div class="concept-step" data-step="02"><div class="concept-title">Assess</div><div class="concept-copy">Risk assessment, supply/earthing, occupancy, multiple supplies and sensitive loads.</div></div>
+          <div class="concept-step" data-step="03"><div class="concept-title">Inspect/test</div><div class="concept-copy">Visual inspection, safe isolation, dead testing, live testing only where competent and justified.</div></div>
+          <div class="concept-step" data-step="04"><div class="concept-title">Report</div><div class="concept-copy">Codes, urgent danger communication, report issue, remedial work evidence and next inspection date.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-before-site">
+      <button class="eicr-acc-header" type="button" id="eicr-before-site-button" aria-expanded="false" aria-controls="eicr-before-site-panel" onclick="toggleEicrAccordion('eicr-before-site')"><span><span class="eicr-acc-kicker">Preparation</span><span class="eicr-acc-title">Before Arriving On Site</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-before-site-panel" role="region" aria-labelledby="eicr-before-site-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>Client questions</h3><ul><li>reason for report and property use</li><li>previous EIC/EICR/MEIWC availability</li><li>known faults or nuisance tripping</li><li>whether power can be interrupted</li></ul></div>
+          <div class="eicr-card"><h3>Installation clues</h3><ul><li>property age and occupancy</li><li>number of consumer units or DBs</li><li>likely supply/earthing type</li><li>outbuildings and external supplies</li></ul></div>
+          <div class="eicr-card"><h3>Special systems</h3><ul><li>PV, battery storage, generators or UPS</li><li>EV charging</li><li>immersion, shower, cooker and heating</li><li>alarms, data, security and ELV systems</li></ul></div>
+          <div class="eicr-card"><h3>Occupied property risk</h3><ul><li>vulnerable persons and medical equipment</li><li>fridges, freezers, IT equipment and alarms</li><li>pets and access to rooms, lofts or garages</li><li>tenant/landlord communication route</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-tools">
+      <button class="eicr-acc-header" type="button" id="eicr-tools-button" aria-expanded="false" aria-controls="eicr-tools-panel" onclick="toggleEicrAccordion('eicr-tools')"><span><span class="eicr-acc-kicker">Equipment</span><span class="eicr-acc-title">Tools and Test Equipment</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-tools-panel" role="region" aria-labelledby="eicr-tools-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>Core test kit</h3><p>Multifunction tester, proving unit, two-pole voltage indicator or approved test lamp, GS38-compliant leads/probes, continuity leads and long lead/wander lead where appropriate.</p></div>
+          <div class="eicr-card"><h3>Support kit</h3><p>Lock-off kit, warning notices, labels, camera, notebook, forms/software, suitable hand tools, PPE and torque screwdriver where relevant.</p></div>
+          <div class="eicr-card"><h3>Condition and calibration</h3><p>Check instrument condition, lead condition, battery state, calibration status and suitability for the installation category before use.</p></div>
+          <div class="eicr-card"><h3>Socket tester warning</h3><p>Plug-in socket testers can indicate some issues but do not replace competent inspection, testing, safe isolation or calibrated instruments.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-safe-isolation">
+      <button class="eicr-acc-header" type="button" id="eicr-safe-isolation-button" aria-expanded="false" aria-controls="eicr-safe-isolation-panel" onclick="toggleEicrAccordion('eicr-safe-isolation')"><span><span class="eicr-acc-kicker">Safety</span><span class="eicr-acc-title">Safe Isolation</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-safe-isolation-panel" role="region" aria-labelledby="eicr-safe-isolation-button">
+        <div class="warn-box"><div class="warn-box-title">Competent-person only</div><div class="warn-box-body">Inspection and testing of live or potentially live installations must only be carried out by a competent and authorised person using suitable test equipment and safe working procedures.</div></div>
+        <figure class="eicr-diagram" aria-labelledby="eicr-safe-isolation-diagram-title">
+          <svg viewBox="0 0 720 150" role="img"><title id="eicr-safe-isolation-diagram-title">Safe isolation sequence concept</title><path class="svg-line" d="M80 75H640"/><rect class="svg-box" x="20" y="40" width="100" height="70" rx="7"/><text class="svg-note" x="43" y="79">Identify</text><rect class="svg-box" x="150" y="40" width="100" height="70" rx="7"/><text class="svg-note" x="176" y="79">Isolate</text><rect class="svg-accent" x="280" y="40" width="100" height="70" rx="7"/><text class="svg-note" x="304" y="79">Lock off</text><rect class="svg-box" x="410" y="40" width="100" height="70" rx="7"/><text class="svg-note" x="435" y="79">Prove</text><rect class="svg-green" x="540" y="40" width="100" height="70" rx="7"/><text class="svg-note" x="557" y="79">Verify dead</text></svg>
+          <figcaption>Concept only: identify, inform, switch off, secure, post warning, prove tester, check relevant conductors, and re-prove tester under the applicable safe system of work.</figcaption>
+        </figure>
+        <p>Do not rely on neon screwdrivers, assumptions, labels, conductor colours or non-contact indicators as the primary method of proving dead. Watch for borrowed neutrals, multiple supplies, PV, battery storage, generators, UPS, heating/control circuits, smart controls, automatic switching and diverted neutral currents.</p>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-visual-inspection">
+      <button class="eicr-acc-header" type="button" id="eicr-visual-inspection-button" aria-expanded="false" aria-controls="eicr-visual-inspection-panel" onclick="toggleEicrAccordion('eicr-visual-inspection')"><span><span class="eicr-acc-kicker">Inspection</span><span class="eicr-acc-title">Initial Visual Inspection</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-visual-inspection-panel" role="region" aria-labelledby="eicr-visual-inspection-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>Intake and supply</h3><ul><li>service head, metering and isolator visual condition</li><li>main switch and tails visible condition</li><li>earthing arrangement indicators</li><li>supplier/distributor defects referred appropriately</li></ul></div>
+          <div class="eicr-card"><h3>Consumer unit</h3><ul><li>covers, blanks, barriers and IP suitability</li><li>signs of overheating, damage or loose equipment</li><li>RCD/RCBO/SPD/AFDD presence where relevant</li><li>accessibility, schedules and labels</li></ul></div>
+          <div class="eicr-card"><h3>Earthing and bonding</h3><ul><li>main earthing conductor and MET</li><li>main protective bonding to gas, water, oil, steel or other services where relevant</li><li>continuity and connection condition</li><li>extraneous-conductive-parts judgement</li></ul></div>
+          <div class="eicr-card"><h3>Circuits and accessories</h3><ul><li>cable condition, support and mechanical protection</li><li>safe zone awareness and damage signs</li><li>sockets, switches, accessories and evidence of poor alterations</li><li>lighting, downlights, showers, cookers, heating and outdoor equipment</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-supply-earthing">
+      <button class="eicr-acc-header" type="button" id="eicr-supply-earthing-button" aria-expanded="false" aria-controls="eicr-supply-earthing-panel" onclick="toggleEicrAccordion('eicr-supply-earthing')"><span><span class="eicr-acc-kicker">Earthing</span><span class="eicr-acc-title">Understanding Supply Types and Earthing</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-supply-earthing-panel" role="region" aria-labelledby="eicr-supply-earthing-button">
+        <div class="eicr-diagram-grid">
+          <figure class="eicr-diagram" aria-labelledby="tns-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="tns-diagram-title">TN-S earthing arrangement concept</title><rect class="svg-box" x="18" y="45" width="80" height="58" rx="6"/><text class="svg-note" x="33" y="77">Supply</text><path class="svg-line" d="M98 62H260"/><path class="svg-earth" d="M98 90H260"/><rect class="svg-green" x="235" y="45" width="65" height="58" rx="6"/><text class="svg-note" x="252" y="77">MET</text></svg><figcaption>TN-S concept: separate neutral and earth paths from the source. Confirm the actual arrangement, Ze and bonding on site.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="pmE-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="pmE-diagram-title">TN-C-S or PME earthing arrangement concept</title><rect class="svg-box" x="18" y="45" width="80" height="58" rx="6"/><text class="svg-note" x="33" y="77">Supply</text><path class="svg-line" d="M98 70H180"/><path class="svg-line" d="M180 70H265"/><path class="svg-earth" d="M180 70V105H265"/><circle class="svg-accent" cx="180" cy="70" r="8"/><text class="svg-note" x="227" y="108">MET</text></svg><figcaption>TN-C-S/PME concept: combined conductor in part of the supply, separated for installation use. EV and outbuilding decisions are context-dependent.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="tt-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="tt-diagram-title">TT earthing arrangement concept</title><rect class="svg-box" x="18" y="45" width="80" height="58" rx="6"/><text class="svg-note" x="33" y="77">Supply</text><path class="svg-line" d="M98 65H265"/><rect class="svg-green" x="225" y="45" width="65" height="58" rx="6"/><text class="svg-note" x="242" y="77">MET</text><path class="svg-earth" d="M257 103V128M240 128H274M246 136H268"/></svg><figcaption>TT concept: installation earth electrode. RCD dependence, electrode condition and testing/maintenance are central to judgement.</figcaption></figure>
+        </div>
+        <div class="eicr-table-wrap"><table class="ref-table"><tr><th>Type</th><th>Revision effect</th><th>EICR caution</th></tr><tr><td>TN-S</td><td>Separate supply neutral and earth paths.</td><td>Confirm by inspection/enquiry/testing; appearance alone can mislead.</td></tr><tr><td>TN-C-S / PME</td><td>Combined supply conductor separated at the installation.</td><td>Open-PEN risk awareness for EV, outbuildings and outdoor conductive parts.</td></tr><tr><td>TT</td><td>Local electrode provides installation earth reference.</td><td>RCD effectiveness, electrode condition and bonding require careful review.</td></tr><tr><td>IT</td><td>Rare/special arrangement.</td><td>Do not assume domestic TN/TT logic applies; check specialist design information.</td></tr></table></div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-domestic-circuits">
+      <button class="eicr-acc-header" type="button" id="eicr-domestic-circuits-button" aria-expanded="false" aria-controls="eicr-domestic-circuits-panel" onclick="toggleEicrAccordion('eicr-domestic-circuits')"><span><span class="eicr-acc-kicker">Circuits</span><span class="eicr-acc-title">Domestic Circuits To Inspect and Test</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-domestic-circuits-panel" role="region" aria-labelledby="eicr-domestic-circuits-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>Ring finals</h3><p>Inspect accessories, spurs, load signs and continuity evidence. Common issues include broken ring conductors, borrowed/shared neutrals, damaged accessories and poor additions.</p></div>
+          <div class="eicr-card"><h3>Radial sockets</h3><p>Review route, load, RCD/RCBO protection, CPC continuity, polarity and outdoor-use implications.</p></div>
+          <div class="eicr-card"><h3>Lighting</h3><p>Check CPC presence, Class I fittings, downlight heat/fire issues, borrowed neutrals, switching and older colours.</p></div>
+          <div class="eicr-card"><h3>High-load circuits</h3><p>Cookers, showers, immersion heaters and heating circuits need review against load, isolation, route, protection and manufacturer data.</p></div>
+          <div class="eicr-card"><h3>External/outbuilding</h3><p>Consider mechanical protection, water ingress, glands, earthing/bonding, extraneous parts, future loads and PME/TT decisions.</p></div>
+          <div class="eicr-card"><h3>Special interfaces</h3><p>EV, PV, batteries, smoke/heat alarms and ELV/data separation need system-specific awareness and source checks.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-dead-testing">
+      <button class="eicr-acc-header" type="button" id="eicr-dead-testing-button" aria-expanded="false" aria-controls="eicr-dead-testing-panel" onclick="toggleEicrAccordion('eicr-dead-testing')"><span><span class="eicr-acc-kicker">Dead tests</span><span class="eicr-acc-title">Dead Testing Guide</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-dead-testing-panel" role="region" aria-labelledby="eicr-dead-testing-button">
+        <p>Dead tests establish continuity, insulation condition, polarity foundations, circuit identity and protective conductor presence without energising test points. They are not a substitute for competence, calibrated equipment or current GN3/BS 7671 instructions.</p>
+        <div class="eicr-table-wrap"><table class="ref-table"><tr><th>Dead test purpose</th><th>What it establishes</th><th>Common traps</th></tr><tr><td>CPC/bonding continuity</td><td>Protective path and bonding connection continuity.</td><td>Parallel paths, poor contact, wrong conductor or inaccessible points.</td></tr><tr><td>Ring final r1/rn/r2</td><td>Continuity of line, neutral and CPC around the ring.</td><td>Cross-connections, spurs mistaken for ring legs, loose terminals.</td></tr><tr><td>R1+R2</td><td>Line-to-CPC continuity contribution to fault path.</td><td>Borrowed neutrals, open CPCs, parallel earth paths.</td></tr><tr><td>Insulation resistance</td><td>Condition between conductors and circuits.</td><td>Sensitive equipment, connected loads, SPDs, electronics and damp conditions.</td></tr><tr><td>Dead polarity</td><td>Line conductor switching/protection and conductor identification.</td><td>Assumptions from colour, older wiring and mixed-age alterations.</td></tr></table></div>
+        <div class="eicr-diagram-grid">
+          <figure class="eicr-diagram" aria-labelledby="ring-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="ring-diagram-title">Ring final continuity concept</title><circle class="svg-box" cx="160" cy="75" r="48"/><path class="svg-line" d="M112 75H58M208 75H262"/><text class="svg-note" x="140" y="59">r1</text><text class="svg-note" x="140" y="78">rn</text><text class="svg-note" x="140" y="97">r2</text></svg><figcaption>Ring continuity concept for r1, rn and r2. Verify method and expected interpretation against current guidance.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="fig8-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="fig8-diagram-title">Figure-of-eight cross-connection concept</title><path class="svg-line" d="M80 75C80 25 160 25 160 75S240 125 240 75 160 25 160 75 80 125 80 75Z"/><circle class="svg-accent" cx="160" cy="75" r="9"/><text class="svg-note" x="132" y="135">cross-connection concept</text></svg><figcaption>Figure-of-eight concept used to expose ring continuity and polarity issues. This is not a test-lead placement diagram.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="radial-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="radial-diagram-title">Radial R1 plus R2 concept</title><rect class="svg-box" x="32" y="55" width="56" height="44" rx="5"/><path class="svg-line" d="M88 75H252"/><path class="svg-earth" d="M88 95H252"/><text class="svg-note" x="139" y="69">R1</text><text class="svg-note" x="139" y="109">R2</text></svg><figcaption>Radial R1+R2 concept: line and CPC path relationship, subject to current procedure and limitations.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="ir-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="ir-diagram-title">Insulation resistance concept</title><path class="svg-line" d="M70 55H250M70 95H250"/><path class="svg-red" d="M156 55C145 70 175 80 164 95"/><text class="svg-note" x="88" y="42">Conductor</text><text class="svg-note" x="92" y="119">Conductor</text></svg><figcaption>Insulation resistance concept: checking insulation condition between conductors after suitable disconnection/precautions.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="bonding-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="bonding-diagram-title">Main bonding continuity concept</title><rect class="svg-green" x="30" y="55" width="58" height="42" rx="5"/><text class="svg-note" x="47" y="80">MET</text><path class="svg-earth" d="M88 75H260"/><rect class="svg-box" x="220" y="47" width="64" height="56" rx="5"/><text class="svg-note" x="232" y="80">Service</text></svg><figcaption>Main bonding continuity concept between MET and incoming services where bonding is required.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-live-testing">
+      <button class="eicr-acc-header" type="button" id="eicr-live-testing-button" aria-expanded="false" aria-controls="eicr-live-testing-panel" onclick="toggleEicrAccordion('eicr-live-testing')"><span><span class="eicr-acc-kicker">Live tests</span><span class="eicr-acc-title">Live Testing Guide</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-live-testing-panel" role="region" aria-labelledby="eicr-live-testing-button">
+        <div class="warn-box"><div class="warn-box-title">Live testing warning</div><div class="warn-box-body">Live tests are competent-person-only work. They require suitable approved test equipment, safe systems of work, risk assessment and current guidance. This section explains purpose and risk, not public test steps.</div></div>
+        <div class="eicr-table-wrap"><table class="ref-table"><tr><th>Live test</th><th>Purpose</th><th>Risk/limitation</th></tr><tr><td>Ze</td><td>External earth fault loop impedance at origin or by enquiry/measurement as appropriate.</td><td>Requires care around supply equipment and live conditions; verify current method.</td></tr><tr><td>PFC/PEFC/PSCC</td><td>Prospective fault current values for breaking-capacity assessment.</td><td>Supply conditions and measurement method affect result.</td></tr><tr><td>Zs</td><td>Earth fault loop impedance at circuit points for disconnection assessment.</td><td>No-trip tests have limitations; RCD support needs current guidance.</td></tr><tr><td>RCD/RCBO checks</td><td>Confirms residual-current device function against relevant requirements.</td><td>Type AC/A/F/B awareness, load effects and manufacturer data matter.</td></tr><tr><td>Functional/voltage/polarity</td><td>Confirms operation, voltage presence and line/neutral arrangement.</td><td>Can expose users and equipment to risk if poorly planned.</td></tr></table></div>
+        <div class="eicr-diagram-grid">
+          <figure class="eicr-diagram" aria-labelledby="ze-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="ze-diagram-title">Ze test concept</title><rect class="svg-box" x="28" y="50" width="70" height="50" rx="6"/><text class="svg-note" x="43" y="79">Supply</text><path class="svg-line" d="M98 75H225"/><rect class="svg-accent" x="225" y="52" width="62" height="46" rx="6"/><text class="svg-note" x="241" y="79">Origin</text></svg><figcaption>Ze concept: external loop at origin or by approved enquiry/measurement. Verify the current method and safety controls.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="zs-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="zs-diagram-title">Zs test concept</title><rect class="svg-box" x="28" y="50" width="58" height="48" rx="6"/><text class="svg-note" x="45" y="78">CU</text><path class="svg-line" d="M86 74H255"/><rect class="svg-green" x="230" y="52" width="62" height="44" rx="6"/><text class="svg-note" x="247" y="78">Load</text><path class="svg-earth" d="M255 96C205 132 120 132 57 98"/></svg><figcaption>Zs concept: full earth fault loop path at a point on a circuit. Device data and current guidance determine interpretation.</figcaption></figure>
+          <figure class="eicr-diagram" aria-labelledby="rcd-diagram-title"><svg viewBox="0 0 320 150" role="img"><title id="rcd-diagram-title">RCD test concept</title><rect class="svg-box" x="38" y="50" width="58" height="48" rx="6"/><text class="svg-note" x="53" y="78">MFT</text><path class="svg-line" d="M96 74H145"/><rect class="svg-accent" x="145" y="48" width="58" height="52" rx="6"/><text class="svg-note" x="160" y="78">RCD</text><path class="svg-line" d="M203 74H270"/><text class="svg-note" x="218" y="110">device response</text></svg><figcaption>RCD concept: functional/protective device behaviour check, with device type and test conditions verified against current guidance.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-coding">
+      <button class="eicr-acc-header" type="button" id="eicr-coding-button" aria-expanded="false" aria-controls="eicr-coding-panel" onclick="toggleEicrAccordion('eicr-coding')"><span><span class="eicr-acc-kicker">Coding</span><span class="eicr-acc-title">EICR Coding System</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-coding-panel" role="region" aria-labelledby="eicr-coding-button">
+        <figure class="eicr-diagram" aria-labelledby="coding-tree-title"><svg viewBox="0 0 720 210" role="img"><title id="coding-tree-title">Coding decision tree concept</title><rect class="svg-box" x="300" y="16" width="120" height="46" rx="6"/><text class="svg-note" x="321" y="43">Observation</text><path class="svg-line" d="M360 62V92M360 92H115M360 92H605"/><rect class="svg-red" x="40" y="105" width="150" height="54" rx="6"/><text class="svg-note" x="68" y="136">Danger present?</text><rect class="svg-accent" x="285" y="105" width="150" height="54" rx="6"/><text class="svg-note" x="311" y="136">Potential danger?</text><rect class="svg-green" x="530" y="105" width="150" height="54" rx="6"/><text class="svg-note" x="554" y="136">Improvement?</text><text class="svg-note" x="90" y="188">C1</text><text class="svg-note" x="338" y="188">C2 / FI if unresolved</text><text class="svg-note" x="590" y="188">C3 / note</text></svg><figcaption>Coding requires context and engineering judgement. Use current model forms and current BPG4/GN3 guidance for exact wording and outcome rules.</figcaption></figure>
+        <div class="eicr-table-wrap"><table class="ref-table"><tr><th>Code/term</th><th>Meaning</th><th>Outcome note</th></tr><tr><td>C1</td><td>Danger present, risk of injury.</td><td>Immediate remedial action required; affects overall assessment.</td></tr><tr><td>C2</td><td>Potentially dangerous.</td><td>Urgent remedial action required; affects overall assessment.</td></tr><tr><td>C3</td><td>Improvement recommended.</td><td>Advisory; normally does not make the report unsatisfactory by itself.</td></tr><tr><td>FI</td><td>Further investigation advised/required where risk cannot be resolved from the inspection.</td><td>Check current model forms and guidance for exact wording and outcome treatment.</td></tr><tr><td>LIM</td><td>Agreed limitation.</td><td>Must be recorded honestly and not used to hide poor inspection quality.</td></tr><tr><td>N/V or N/A</td><td>Not verified or not applicable where the form/software supports it.</td><td>Use consistently with the form and agreed extent.</td></tr></table></div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-common-observations">
+      <button class="eicr-acc-header" type="button" id="eicr-common-observations-button" aria-expanded="false" aria-controls="eicr-common-observations-panel" onclick="toggleEicrAccordion('eicr-common-observations')"><span><span class="eicr-acc-kicker">Observations</span><span class="eicr-acc-title">Common Domestic EICR Observations</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-common-observations-panel" role="region" aria-labelledby="eicr-common-observations-button">
+        <label class="eicr-small" for="eicr-observation-filter">Filter observations</label>
+        <input class="eicr-filter" id="eicr-observation-filter" type="search" placeholder="Filter by RCD, bonding, C2, polarity..." oninput="filterEicrObservations(this.value)" aria-label="Filter common domestic EICR observations">
+        <div class="eicr-table-wrap">
+          <table class="ref-table" id="eicr-observations-table">
+            <tr><th>Observation</th><th>Look for</th><th>Why it matters</th><th>Likely range</th><th>Context affects</th><th>Remedial direction</th><th>Check note</th></tr>
+            <tr><td>No RCD for sockets likely to supply outdoor equipment</td><td>Socket circuits used for portable outdoor equipment.</td><td>Additional shock protection risk.</td><td>C2 often cited by BPG4 examples.</td><td>Socket use, labels, location, circuit arrangement.</td><td>Add appropriate RCD/RCBO protection where required.</td><td>Verify current BS 7671 and BPG4.</td></tr>
+            <tr><td>No RCD for bathroom circuits/socket</td><td>Bathroom circuits or accessories requiring additional protection.</td><td>Increased shock risk in special locations.</td><td>C2 context commonly cited.</td><td>Equipment type, location, age, supplementary bonding, current requirements.</td><td>Provide compliant protection/remedial design.</td><td>Verify Section 701/current guidance.</td></tr>
+            <tr><td>Missing main bonding</td><td>Gas, water, oil or other extraneous services not effectively bonded where required.</td><td>Dangerous potential differences.</td><td>C2 commonly cited.</td><td>Whether service is extraneous, supply type, continuity evidence.</td><td>Install/verify suitable main protective bonding.</td><td>Verify against current BS 7671.</td></tr>
+            <tr><td>Undersized or ineffective bonding</td><td>Bonding present but unsuitable, damaged or not continuous.</td><td>Protective measure may be ineffective.</td><td>C2/C3 context-dependent.</td><td>Actual size, continuity, supply type and risk.</td><td>Upgrade or repair bonding as required.</td><td>Do not guess sizes from memory.</td></tr>
+            <tr><td>Exposed live parts / damaged accessory</td><td>Broken accessories, missing covers, exposed conductors.</td><td>Immediate shock/burn risk.</td><td>C1 where live parts accessible.</td><td>Accessibility and energised condition.</td><td>Make safe immediately, then repair/replace.</td><td>BPG4 gives strong examples.</td></tr>
+            <tr><td>Missing consumer-unit blank</td><td>Open way or missing device with accessible live parts.</td><td>Direct access to live parts.</td><td>C1 where accessible live parts exist.</td><td>Accessibility, enclosure condition, live state.</td><td>Fit correct blank/device and verify enclosure integrity.</td><td>BPG4 gives strong examples.</td></tr>
+            <tr><td>Burnt or overheated equipment</td><td>Discolouration, smell, melted insulation, heat damage.</td><td>Fire risk or loose/overloaded connection.</td><td>C2/FI/C1 depending danger.</td><td>Severity, access to live parts, active overheating.</td><td>Investigate, isolate if dangerous, repair.</td><td>Use competent judgement.</td></tr>
+            <tr><td>Broken ring final continuity</td><td>Open r1, rn or r2, inconsistent readings or test evidence.</td><td>Load distribution and protective path risk.</td><td>C2 often cited.</td><td>Which conductor, load, protection, spur arrangements.</td><td>Trace and repair ring continuity.</td><td>Verify current BPG4/GN3.</td></tr>
+            <tr><td>Reversed polarity</td><td>Line/neutral reversal at accessories or supply points.</td><td>Switching/protection may not be in line conductor.</td><td>C2 commonly likely.</td><td>Location, device type, exposure risk.</td><td>Correct polarity and retest.</td><td>Verify before coding.</td></tr>
+            <tr><td>No CPC on lighting circuit</td><td>Older lighting circuit with no protective conductor.</td><td>Class I fittings/accessories may become dangerous.</td><td>C2 where Class I equipment or metal plates depend on CPC.</td><td>Actual accessories, labels, RCD, user risk.</td><td>Replace Class I fittings, rewire, or design suitable remedial work.</td><td>BPG4 gives specific examples.</td></tr>
+            <tr><td>Borrowed or shared neutral</td><td>Unexpected neutral paths, RCD trips, two-circuit interaction.</td><td>Danger during isolation and device operation issues.</td><td>C2 commonly cited.</td><td>Which circuits, protective devices, isolation risk.</td><td>Separate/rewire circuits correctly.</td><td>Competent investigation required.</td></tr>
+            <tr><td>High Zs without suitable support</td><td>Loop impedance not supporting device operation.</td><td>Automatic disconnection may not occur as intended.</td><td>C2 context commonly cited.</td><td>Device data, RCD support, supply type, measurement method.</td><td>Improve fault path/protection after design review.</td><td>Verify current tables/device data.</td></tr>
+            <tr><td>Low insulation resistance</td><td>IR result or symptoms suggesting damaged insulation.</td><td>Shock/fire/unreliable operation risk.</td><td>FI/C2 context-dependent.</td><td>Circuit type, equipment connected, moisture, trend.</td><td>Investigate and repair damaged circuit/equipment.</td><td>Verify current guidance and limitations.</td></tr>
+            <tr><td>Plastic consumer unit</td><td>Plastic enclosure, especially under stairs/escape routes.</td><td>Fire containment concern, but not automatically a fail.</td><td>C3 in common BPG4-type scenarios.</td><td>Location, condition, damage, overheating, escape route.</td><td>Recommend improvement where appropriate.</td><td>Do not code solely because it is plastic.</td></tr>
+            <tr><td>SPD absence</td><td>No surge protection where current rules/risk indicate it.</td><td>Equipment damage and safety/service continuity risk.</td><td>C3/observation commonly context-dependent.</td><td>Installation type, risk assessment, client requirement, current BS 7671.</td><td>Assess and install SPD where required/recommended.</td><td>Verify current A4 wording.</td></tr>
+            <tr><td>AFDD absence</td><td>No AFDD in categories where current rules recommend/require.</td><td>Arc-fault fire risk reduction in specific premises.</td><td>C3 or observation context-dependent.</td><td>Premises type, circuit type, current BS 7671 category.</td><td>Recommend/install where applicable.</td><td>Verify current A4 wording.</td></tr>
+            <tr><td>EV charger on PME with unmet requirements</td><td>EV supply lacking required open-PEN/earthing safeguards.</td><td>Potential touch-voltage risk in open-PEN conditions.</td><td>C3/C2/FI context-dependent.</td><td>Charger design, protection, supply type, manufacturer data.</td><td>Review EV earthing/protection design.</td><td>Verify current BS 7671 and manufacturer data.</td></tr>
+            <tr><td>Inadequate labels or circuit ID</td><td>Missing schedules, unclear circuit labels, no RCD notices where relevant.</td><td>Future isolation/testing risk.</td><td>C3/observation usually.</td><td>Severity, occupancy, emergency use and risk.</td><td>Update labels and schedules.</td><td>Use form guidance and judgement.</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-walkthrough">
+      <button class="eicr-acc-header" type="button" id="eicr-walkthrough-button" aria-expanded="false" aria-controls="eicr-walkthrough-panel" onclick="toggleEicrAccordion('eicr-walkthrough')"><span><span class="eicr-acc-kicker">Example</span><span class="eicr-acc-title">Domestic EICR Walkthrough Example</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-walkthrough-panel" role="region" aria-labelledby="eicr-walkthrough-button">
+        <p>Example only: a typical occupied house with one consumer unit, socket ring final, lighting circuits, cooker circuit, shower circuit, boiler controls, outdoor light/socket and detached garage. No fake measurements are provided.</p>
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>Example observations</h3><ul><li>consumer unit schedule incomplete</li><li>one damaged socket in kitchen</li><li>lighting circuit with mixed older colours</li><li>garage supply needs limitation due no access to buried route</li></ul></div>
+          <div class="eicr-card"><h3>Example limitation</h3><p>Loft areas partly boarded and stored items restricted access; concealed cable routes not fully inspected. Limitation agreed before inspection and recorded.</p></div>
+          <div class="eicr-card"><h3>Example report wording</h3><p>"Kitchen double socket adjacent to worktop damaged, exposing internal parts when plug removed. Immediate repair/replacement required. Classification subject to condition found at inspection."</p></div>
+          <div class="eicr-card"><h3>Example outcome</h3><p>Overall outcome follows the highest-risk observations and current model-form guidance. C1/C2 or unresolved FI normally drive unsatisfactory; C3-only observations normally remain advisory.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-report-writing">
+      <button class="eicr-acc-header" type="button" id="eicr-report-writing-button" aria-expanded="false" aria-controls="eicr-report-writing-panel" onclick="toggleEicrAccordion('eicr-report-writing')"><span><span class="eicr-acc-kicker">Forms</span><span class="eicr-acc-title">Forms and Report Writing</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-report-writing-panel" role="region" aria-labelledby="eicr-report-writing-button">
+        <figure class="eicr-diagram" aria-labelledby="report-flow-title"><svg viewBox="0 0 720 150" role="img"><title id="report-flow-title">Observation to report outcome flow</title><path class="svg-line" d="M80 75H640"/><rect class="svg-box" x="24" y="44" width="110" height="62" rx="6"/><text class="svg-note" x="50" y="79">Observation</text><rect class="svg-box" x="170" y="44" width="110" height="62" rx="6"/><text class="svg-note" x="202" y="79">Code</text><rect class="svg-box" x="316" y="44" width="110" height="62" rx="6"/><text class="svg-note" x="346" y="79">Evidence</text><rect class="svg-accent" x="462" y="44" width="110" height="62" rx="6"/><text class="svg-note" x="489" y="79">Outcome</text><rect class="svg-green" x="608" y="44" width="88" height="62" rx="6"/><text class="svg-note" x="625" y="79">Next date</text></svg><figcaption>Report flow: observation, schedule reference, code, evidence, summary/outcome and next inspection date.</figcaption></figure>
+        <div class="eicr-table-wrap"><table class="ref-table"><tr><th>Form area</th><th>Revision note</th></tr><tr><td>Client and address</td><td>Identify person ordering report and installation address accurately.</td></tr><tr><td>Reason, extent and limitations</td><td>Record why the report is needed and what was/was not covered.</td></tr><tr><td>Supply, earthing and bonding</td><td>Record characteristics, protective conductors and bonding details.</td></tr><tr><td>Schedules</td><td>Inspection schedule, circuit details and test results accompany the report.</td></tr><tr><td>Observations and codes</td><td>Write concise, defensible observations with location, issue, risk, code and action direction.</td></tr><tr><td>Declaration and next date</td><td>Authorisation, summary and recommended next inspection date should reflect findings.</td></tr></table></div>
+        <div class="warn-box"><div class="warn-box-title">Certificate boundary</div><div class="warn-box-body">Remedial work is certified using the appropriate certificate/report for that work. Do not misuse an EICR as a certificate for new installation work.</div></div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-limitations">
+      <button class="eicr-acc-header" type="button" id="eicr-limitations-button" aria-expanded="false" aria-controls="eicr-limitations-panel" onclick="toggleEicrAccordion('eicr-limitations')"><span><span class="eicr-acc-kicker">Extent</span><span class="eicr-acc-title">Limitations</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-limitations-panel" role="region" aria-labelledby="eicr-limitations-button">
+        <p>Limitations can be agreed before the inspection or arise operationally on site. They must be honest, specific and defensible, and must not be used to hide poor inspection quality.</p>
+        <div class="eicr-table-wrap"><table class="ref-table"><tr><th>Limitation</th><th>Good wording</th><th>Poor wording</th></tr><tr><td>No loft access</td><td>Loft hatch blocked by stored items; roof-space wiring not fully inspected.</td><td>Could not check upstairs.</td></tr><tr><td>No power interruption</td><td>Client refused isolation of freezer/IT circuit; dead/live tests limited and recorded.</td><td>Testing not done.</td></tr><tr><td>Sensitive equipment</td><td>Equipment could not be disconnected; IR test limitation recorded for affected circuit.</td><td>Skipped IR.</td></tr><tr><td>Sealed DNO equipment</td><td>Distributor equipment visually inspected only; defects referred appropriately.</td><td>Supply looks fine.</td></tr></table></div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-special-cases">
+      <button class="eicr-acc-header" type="button" id="eicr-special-cases-button" aria-expanded="false" aria-controls="eicr-special-cases-panel" onclick="toggleEicrAccordion('eicr-special-cases')"><span><span class="eicr-acc-kicker">Edge cases</span><span class="eicr-acc-title">Special Cases</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-special-cases-panel" role="region" aria-labelledby="eicr-special-cases-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>No-CPC lighting</h3><p>Code depends on Class I fittings/accessories, user risk, labels and remedial practicality. Verify current BPG4.</p></div>
+          <div class="eicr-card"><h3>Old colours / rewireable fuses</h3><p>Age is not automatically unsatisfactory. Condition, protection, labels, damage and risk drive observations.</p></div>
+          <div class="eicr-card"><h3>TT systems</h3><p>RCD dependence, electrode condition, bonding and test evidence need careful competent review.</p></div>
+          <div class="eicr-card"><h3>EV, PV and batteries</h3><p>Multiple supplies, isolators, DC risks, open-PEN and manufacturer data must be considered.</p></div>
+          <div class="eicr-card"><h3>HMO/private rented</h3><p>NI private tenancy and HMO licensing contexts can add duties beyond a normal homeowner EICR.</p></div>
+          <div class="eicr-card"><h3>Commercial/three-phase/agricultural</h3><p>Use this as awareness only; specialist competence and additional standards/procedures may be required.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-apprentice-learning">
+      <button class="eicr-acc-header" type="button" id="eicr-apprentice-learning-button" aria-expanded="false" aria-controls="eicr-apprentice-learning-panel" onclick="toggleEicrAccordion('eicr-apprentice-learning')"><span><span class="eicr-acc-kicker">Learning</span><span class="eicr-acc-title">Apprentice Learning Section</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-apprentice-learning-panel" role="region" aria-labelledby="eicr-apprentice-learning-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>Before you touch anything</h3><ul><li>know who is supervising you</li><li>understand the isolation plan</li><li>ask before removing covers</li><li>never assume a circuit is dead</li></ul></div>
+          <div class="eicr-card"><h3>Watch the supervisor</h3><ul><li>how scope/limitations are agreed</li><li>how visual observations are written</li><li>how test equipment is proved</li><li>how codes are justified</li></ul></div>
+          <div class="eicr-card"><h3>Useful questions</h3><ul><li>What risk makes this code appropriate?</li><li>What source would you check?</li><li>What limitation should be recorded?</li><li>What remedial certificate would follow?</li></ul></div>
+          <div class="eicr-card"><h3>Common mistakes</h3><ul><li>copying old codes without context</li><li>messy circuit IDs</li><li>forgetting limitations</li><li>treating live tests casually</li></ul></div>
+        </div>
+        <div class="eicr-table-wrap"><table class="ref-table"><tr><th>Term</th><th>Apprentice recap</th></tr><tr><td>Extent</td><td>What the inspection covers.</td></tr><tr><td>Limitation</td><td>What was agreed or could not be inspected/tested.</td></tr><tr><td>Observation</td><td>A recorded issue with location, risk and classification.</td></tr><tr><td>Schedule</td><td>Inspection or test-result record attached to the report.</td></tr><tr><td>FI</td><td>Further investigation where risk cannot be resolved from available evidence.</td></tr></table></div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-diagrams">
+      <button class="eicr-acc-header" type="button" id="eicr-diagrams-button" aria-expanded="false" aria-controls="eicr-diagrams-panel" onclick="toggleEicrAccordion('eicr-diagrams')"><span><span class="eicr-acc-kicker">Visuals</span><span class="eicr-acc-title">Diagram Library</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-diagrams-panel" role="region" aria-labelledby="eicr-diagrams-button">
+        <p>All diagrams are original conceptual revision visuals. They are not copied from BS 7671, GN3 or proprietary guides, and they do not show terminal-level instructions.</p>
+        <div class="eicr-diagram-grid">
+          <figure class="eicr-diagram"><svg viewBox="0 0 300 130" role="img" aria-label="Lighting CPC continuity concept"><path class="svg-line" d="M40 50H250M40 82H250"/><circle class="svg-green" cx="75" cy="82" r="9"/><circle class="svg-green" cx="170" cy="82" r="9"/><text class="svg-note" x="54" y="112">lighting CPC continuity concept</text></svg><figcaption>Lighting circuit CPC continuity concept.</figcaption></figure>
+          <figure class="eicr-diagram"><svg viewBox="0 0 300 130" role="img" aria-label="Simplified bathroom zones concept"><rect class="svg-box" x="35" y="35" width="230" height="70" rx="6"/><rect class="svg-red" x="68" y="48" width="58" height="44" rx="4"/><rect class="svg-accent" x="126" y="48" width="58" height="44" rx="4"/><rect class="svg-green" x="184" y="48" width="46" height="44" rx="4"/><text class="svg-note" x="76" y="74">Zone</text><text class="svg-note" x="136" y="74">Near</text><text class="svg-note" x="194" y="74">Out</text></svg><figcaption>Simplified bathroom zones concept. Verify current Section 701 before using any zone decision.</figcaption></figure>
+          <figure class="eicr-diagram"><svg viewBox="0 0 300 130" role="img" aria-label="Consumer unit inspection map"><rect class="svg-box" x="42" y="32" width="216" height="72" rx="7"/><rect class="svg-accent" x="58" y="48" width="36" height="40" rx="4"/><rect class="svg-box" x="105" y="48" width="26" height="40"/><rect class="svg-box" x="137" y="48" width="26" height="40"/><rect class="svg-box" x="169" y="48" width="26" height="40"/><rect class="svg-green" x="211" y="48" width="28" height="40"/><text class="svg-note" x="60" y="116">cover, blanks, labels, heat, device suitability</text></svg><figcaption>Consumer-unit inspection map: visual condition and documentation checks only.</figcaption></figure>
+          <figure class="eicr-diagram"><svg viewBox="0 0 300 130" role="img" aria-label="Main bonding concept"><rect class="svg-green" x="35" y="46" width="55" height="38" rx="5"/><text class="svg-note" x="51" y="69">MET</text><path class="svg-earth" d="M90 65H235"/><rect class="svg-box" x="205" y="42" width="60" height="46" rx="5"/><text class="svg-note" x="217" y="69">Pipe</text></svg><figcaption>Main bonding concept.</figcaption></figure>
+          <figure class="eicr-diagram"><svg viewBox="0 0 300 130" role="img" aria-label="Observation to outcome flow"><path class="svg-line" d="M40 65H260"/><rect class="svg-box" x="20" y="42" width="62" height="46" rx="5"/><text class="svg-note" x="30" y="68">Issue</text><rect class="svg-accent" x="116" y="42" width="62" height="46" rx="5"/><text class="svg-note" x="129" y="68">Code</text><rect class="svg-green" x="212" y="42" width="62" height="46" rx="5"/><text class="svg-note" x="223" y="68">Result</text></svg><figcaption>Observation-to-outcome report flow.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-checklists">
+      <button class="eicr-acc-header" type="button" id="eicr-checklists-button" aria-expanded="false" aria-controls="eicr-checklists-panel" onclick="toggleEicrAccordion('eicr-checklists')"><span><span class="eicr-acc-kicker">Print</span><span class="eicr-acc-title">Checklists</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-checklists-panel" role="region" aria-labelledby="eicr-checklists-button">
+        <div class="eicr-checklist-grid">
+          <div class="print-checklist"><h3>Pre-visit</h3><ul><li>reason for report</li><li>previous paperwork requested</li><li>access and power interruption agreed</li><li>special systems identified</li></ul></div>
+          <div class="print-checklist"><h3>Tools</h3><ul><li>MFT and proving unit</li><li>voltage indicator</li><li>lock-off kit</li><li>leads/probes checked</li></ul></div>
+          <div class="print-checklist"><h3>Safe isolation</h3><ul><li>identify circuit</li><li>inform occupants</li><li>secure isolation</li><li>prove/test/re-prove</li></ul></div>
+          <div class="print-checklist"><h3>Visual inspection</h3><ul><li>intake visual check</li><li>consumer unit condition</li><li>earthing and bonding</li><li>accessories and external equipment</li></ul></div>
+          <div class="print-checklist"><h3>Dead testing</h3><ul><li>CPC/bonding continuity</li><li>ring final continuity</li><li>R1+R2</li><li>insulation resistance precautions</li></ul></div>
+          <div class="print-checklist"><h3>Live testing</h3><ul><li>risk assessment</li><li>Ze/Zs/PFC purpose</li><li>RCD/RCBO checks</li><li>functional checks</li></ul></div>
+          <div class="print-checklist"><h3>Coding</h3><ul><li>risk identified</li><li>code justified</li><li>source checked</li><li>urgent danger communicated</li></ul></div>
+          <div class="print-checklist"><h3>Report completion</h3><ul><li>extent and limitations complete</li><li>schedules attached</li><li>observations defensible</li><li>next inspection date set</li></ul></div>
+          <div class="print-checklist"><h3>Apprentice day</h3><ul><li>supervisor identified</li><li>do not work unsupervised</li><li>record neatly</li><li>ask before touching</li></ul></div>
+          <div class="print-checklist"><h3>Common defects</h3><ul><li>exposed live parts</li><li>missing bonding</li><li>broken ring</li><li>polarity/RCD/Zs issues</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="eicr-accordion" id="eicr-sources-review">
+      <button class="eicr-acc-header" type="button" id="eicr-sources-review-button" aria-expanded="false" aria-controls="eicr-sources-review-panel" onclick="toggleEicrAccordion('eicr-sources-review')"><span><span class="eicr-acc-kicker">Sources</span><span class="eicr-acc-title">Sources and Review Notes</span></span><span class="eicr-acc-arrow">></span></button>
+      <div class="eicr-panel" id="eicr-sources-review-panel" role="region" aria-labelledby="eicr-sources-review-button">
+        <div class="eicr-grid">
+          <div class="eicr-card"><h3>IET BS 7671 update page</h3><p>Use for current edition and transition status. <a href="https://electrical.theiet.org/bs-7671-18th-edition-wiring-regulations/ensure-you-are-up-to-date-with-bs-7671/">Open source</a></p></div>
+          <div class="eicr-card"><h3>IET A4 EICR model forms</h3><p>Use for current form structure, schedules and coding wording. <a href="https://electrical.theiet.org/media/jp2fl3ia/bs7671_eicr_a4.pdf">Open source</a></p></div>
+          <div class="eicr-card"><h3>IET Guidance Note 3</h3><p>Use as the main inspection-and-testing guidance publication; check errata and current edition. <a href="https://electrical.theiet.org/media/byukhqlq/guidance-note-3-edn-10-errata-april-2026.pdf">Open errata</a></p></div>
+          <div class="eicr-card"><h3>Electrical Safety First BPG4</h3><p>Use the latest public coding guide as practical support, verified here as Issue 7.2. <a href="https://www.electricalsafetyfirst.org.uk/media/xqlow0dz/best_practice-guide-4_issue-7-2.pdf">Open source</a></p></div>
+          <div class="eicr-card"><h3>Electrical Safety First BPG2</h3><p>Use for safe-isolation procedure context and industry-agreed safe working reminders. <a href="https://www.electricalsafetyfirst.org.uk/media/blak1wkt/best-practice-guide-2-issue-4.pdf">Open source</a></p></div>
+          <div class="eicr-card"><h3>DfC NI private tenancy guidance</h3><p>Use for Northern Ireland landlord dates, report duties and remedial/further-investigation timing. <a href="https://www.communities-ni.gov.uk/articles/electrical-safety-standards-private-tenancies-regulations-northern-ireland-2024">Open source</a></p></div>
+          <div class="eicr-card"><h3>HSE GS38 and HSENI</h3><p>Use for test-equipment and competence/safe-working context. <a href="https://www.hse.gov.uk/pubns/books/gs38.htm">Open GS38</a></p></div>
+          <div class="eicr-card"><h3>HSENI electrical safety</h3><p>Use for Northern Ireland workplace competence, isolation and testing context. <a href="https://www.hseni.gov.uk/articles/electrical-safety">Open source</a></p></div>
+        </div>
+      </div>
+    </section>
+  </section>
+
   <section class="view" id="view-bathrooms">
     <div class="section-title">Bathrooms and special locations</div>
     <div class="section-sub">Bathrooms and shower rooms have increased electric shock risk because of water and reduced body resistance.</div>
@@ -689,6 +1083,7 @@ const sidebar = document.getElementById('sidebar');
 const backdrop = document.getElementById('sidebar-backdrop');
 const contentArea = document.getElementById('content-area');
 const sidebarToggle = document.getElementById('sidebar-toggle');
+const eicrAnchorIds = [...document.querySelectorAll('#view-eicr-testing .eicr-accordion')].map(section=>section.id);
 
 const infoData = {
   competence:{tag:'Scope',title:'Competence first',body:'Only carry out electrical work that you are competent, authorised and equipped to do.',detail:'If unsure, stop and ask a supervisor, qualified electrician, designer or inspector.',ni:'Applies equally in Northern Ireland; absence of an England/Wales-style domestic Part P system does not reduce competence duties.'},
@@ -727,19 +1122,67 @@ const infoData = {
   workplace:{tag:'NI compliance',title:'Workplace context',body:'HSENI guidance expects electrical systems and equipment to be selected, erected and tested to appropriate standards such as BS 7671 for installations up to 1000 V.',detail:'Only competent persons should work on electrical systems and isolation/testing should take place before work.',ni:'Confirm current HSENI wording before publication.'}
 };
 
-function nav(id){
+function setActiveNav(id, anchor){
+  document.querySelectorAll('.nav-item').forEach(btn=>{
+    const isEicrLink = !!btn.dataset.eicrAnchor;
+    const active = isEicrLink ? (id === 'eicr-testing' && btn.dataset.eicrAnchor === anchor) : (btn.dataset.view === id && !anchor);
+    btn.classList.toggle('active', active);
+  });
+}
+
+function openEicrSection(anchor, shouldScroll){
+  if(!anchor || !eicrAnchorIds.includes(anchor)) anchor = 'eicr-overview';
+  document.querySelectorAll('#view-eicr-testing .eicr-accordion').forEach(section=>{
+    const open = section.id === anchor;
+    section.classList.toggle('open', open);
+    section.querySelector('.eicr-acc-header')?.setAttribute('aria-expanded', String(open));
+  });
+  if(shouldScroll){
+    requestAnimationFrame(()=>{
+      const target = document.getElementById(anchor);
+      if(target) contentArea.scrollTo({top: Math.max(0, target.offsetTop - 10), behavior:'auto'});
+    });
+  }
+}
+
+function toggleEicrAccordion(anchor){
+  const section = document.getElementById(anchor);
+  if(!section) return;
+  const isOpen = section.classList.toggle('open');
+  section.querySelector('.eicr-acc-header')?.setAttribute('aria-expanded', String(isOpen));
+  if(isOpen) history.replaceState(null,'','#' + anchor);
+}
+
+function filterEicrObservations(value){
+  const query = value.trim().toLowerCase();
+  document.querySelectorAll('#eicr-observations-table tr').forEach((row,index)=>{
+    if(index === 0) return;
+    row.style.display = !query || row.textContent.toLowerCase().includes(query) ? '' : 'none';
+  });
+}
+
+function nav(id, anchor){
   document.querySelectorAll('.view').forEach(view=>view.classList.remove('active'));
   const view = document.getElementById('view-' + id);
   if(view){ view.classList.add('active'); }
-  document.querySelectorAll('.nav-item').forEach(btn=>btn.classList.toggle('active', btn.dataset.view === id));
+  if(id === 'eicr-testing'){
+    anchor = anchor || 'eicr-overview';
+    const eicrGroup = document.getElementById('cat-eicr');
+    eicrGroup?.classList.add('open');
+    eicrGroup?.querySelector('.cat-body')?.classList.add('open');
+    eicrGroup?.querySelector('.cat-header')?.setAttribute('aria-expanded','true');
+    openEicrSection(anchor, true);
+  }else{
+    contentArea.scrollTo({top:0,behavior:'auto'});
+  }
+  setActiveNav(id, anchor);
   document.querySelectorAll('.mob-btn').forEach(btn=>btn.classList.remove('active'));
-  contentArea.scrollTo({top:0,behavior:'auto'});
   closeSidebar();
-  history.replaceState(null,'','#' + id);
+  history.replaceState(null,'','#' + (anchor || id));
 }
 
 document.querySelectorAll('.nav-item[data-view]').forEach(btn=>{
-  btn.addEventListener('click',()=>nav(btn.dataset.view));
+  btn.addEventListener('click',()=>nav(btn.dataset.view, btn.dataset.eicrAnchor));
 });
 
 function toggleCat(id){
@@ -851,6 +1294,8 @@ window.addEventListener('resize',()=>{
 const initial=location.hash.replace('#','');
 if(initial && document.getElementById('view-' + initial)){
   nav(initial);
+}else if(initial && eicrAnchorIds.includes(initial)){
+  nav('eicr-testing', initial);
 }
 sidebarToggle?.setAttribute('aria-expanded', String(window.innerWidth > 768 && !sidebar.classList.contains('collapsed')));
 </script>
